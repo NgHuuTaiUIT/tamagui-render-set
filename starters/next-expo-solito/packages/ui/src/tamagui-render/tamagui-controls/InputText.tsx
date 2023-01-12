@@ -81,8 +81,8 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
         // onPointerEnter={onPointerEnter}
         // onPointerLeave={onPointerLeave}
       />
-      <Button als="center" icon={CloseCustom as any} size="$6" onPress={onClear}>
-        Clear input field
+      <Button als="center" icon={CloseCustom as any} size="$4" onPress={onClear}>
+        {/* Clear input field */}
       </Button>
     </XStack>
   )

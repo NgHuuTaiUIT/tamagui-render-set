@@ -51,6 +51,8 @@ import {
 } from './tamagui-controls';
 import { TamaguiTextControl, tamaguiTextControlTester } from './controls';
 import { TamaguiTextCell, tamaguiTextCellTester } from './cells';
+import { TamaguiBooleanSwitchCell, tamaguiBooleanSwitchCellTester } from './cells/TamaguiBooleanSwitchCell';
+import TamaguiBooleanSwitchControl, { tamaguiBooleanSwitchControlTester } from './controls/TamaguiBooleanSwitchControl';
 // import {
 //   TamaguiArrayLayout,
 //   tamaguiArrayLayoutTester,
@@ -98,9 +100,11 @@ export * from './util';
 
 export const tamaguiRenderers: JsonFormsRendererRegistryEntry[] = [
   { tester: tamaguiTextControlTester, renderer: TamaguiTextControl },
+  { tester: tamaguiBooleanSwitchControlTester, renderer: TamaguiBooleanSwitchControl },
 
 ];
 
 export const tamaguiCells: JsonFormsCellRendererRegistryEntry[] = [
   { tester: tamaguiTextCellTester, cell: TamaguiTextCell },
+  { tester: tamaguiBooleanSwitchCellTester, cell: TamaguiBooleanSwitchCell },
 ];

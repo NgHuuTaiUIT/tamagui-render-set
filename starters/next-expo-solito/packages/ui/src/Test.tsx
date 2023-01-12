@@ -8,7 +8,7 @@ import {
   tamaguiRenderers
 } from './tamagui-render';
 
-// import MyGroupRenderer, { myGroupTester } from './MyGroup';
+import MyGroupRenderer, { myGroupTester } from './MyGroup';
 
 const schema = {
     "type": "object",
@@ -16,6 +16,9 @@ const schema = {
       "name": {
         "type": "string",
         "minLength": 1
+      },
+      "include_gift": {
+        "type": "boolean",
       }
     }
 }
@@ -28,7 +31,14 @@ const uischema = {
         "type": "Control",
         "scope": "#/properties/name"
       },
-    ]
+      {
+        "type": "Control",
+        "scope": "#/properties/include_gift",
+        "options": {
+          "toggle": true
+        }
+      },
+    ],
   }
   
 
@@ -72,7 +82,7 @@ const renderers = [
   ...tamaguiRenderers,
   //register custom renderers
 //   { tester: ratingControlTester, renderer: RatingControl },
-//   { tester: myGroupTester, renderer: MyGroupRenderer }
+  { tester: myGroupTester, renderer: MyGroupRenderer }
 ];
 
 const Test = () => {
@@ -106,12 +116,12 @@ const Test = () => {
           <Content>
             {stringifiedData}
           </Content>
-          <ResetButton
+          <Button
             onPress={clearData}
             color='primary'
             >
             Clear data
-          </ResetButton>
+          </Button>
         </YStack>
         <YStack>
           <Title>
