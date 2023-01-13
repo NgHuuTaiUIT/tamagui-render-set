@@ -22,20 +22,26 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import TamaguiTextCell, { tamaguiTextCellTester } from './TamaguiTextCell';
-import TamaguiNumberCell, { tamaguiNumberCellTester } from './TamaguiNumberCell';
-import TamaguiIntegerCell, { tamaguiIntegerCellTester } from './TamaguiIntegerCell';
-import TamaguiBooleanSwitchCell, { tamaguiBooleanSwitchCellTester } from './TamaguiBooleanSwitchCell';
+import React from 'react';
+import {
+  CellProps,
+  isNumberControl,
+  RankedTester,
+  rankWith,
+  WithClassname
+} from '@jsonforms/core';
+import { withJsonFormsCellProps } from '@jsonforms/react';
+import { InputNumber } from '../tamagui-controls/InputNumber';
 
-export {
-  TamaguiBooleanSwitchCell,
-  tamaguiBooleanSwitchCellTester,
-  TamaguiIntegerCell,
-  tamaguiIntegerCellTester,
-  TamaguiNumberCell,
-  tamaguiNumberCellTester,
-  TamaguiTextCell,
-  tamaguiTextCellTester,
-};
-import * as Customizable from './CustomizableCells';
-export { Customizable };
+export const TamaguiNumberCell = (props: CellProps & WithClassname) => (
+  <InputNumber {...props} />
+);
+/**
+ * Default tester for number controls.
+ * @type {RankedTester}
+ */
+export const tamaguiNumberCellTester: RankedTester = rankWith(
+  2,
+  isNumberControl
+);
+export default withJsonFormsCellProps(TamaguiNumberCell);

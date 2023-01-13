@@ -22,20 +22,40 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import TamaguiTextCell, { tamaguiTextCellTester } from './TamaguiTextCell';
-import TamaguiNumberCell, { tamaguiNumberCellTester } from './TamaguiNumberCell';
-import TamaguiIntegerCell, { tamaguiIntegerCellTester } from './TamaguiIntegerCell';
-import TamaguiBooleanSwitchCell, { tamaguiBooleanSwitchCellTester } from './TamaguiBooleanSwitchCell';
+import React from 'react';
+import { CellProps, WithClassname } from '@jsonforms/core';
+import { Input } from 'tamagui';
+import merge from 'lodash/merge';
+import {useDebouncedChange} from '../util';
 
-export {
-  TamaguiBooleanSwitchCell,
-  tamaguiBooleanSwitchCellTester,
-  TamaguiIntegerCell,
-  tamaguiIntegerCellTester,
-  TamaguiNumberCell,
-  tamaguiNumberCellTester,
-  TamaguiTextCell,
-  tamaguiTextCellTester,
-};
-import * as Customizable from './CustomizableCells';
-export { Customizable };
+const toNumber = (value: string) =>
+    value === '' ? undefined : parseFloat(value);
+const eventToValue = (ev:any) => toNumber(ev.target.value);
+export const InputNumber = React.memo((props: CellProps & WithClassname) => {
+  const {
+    data,
+    className,
+    id,
+    enabled,
+    uischema,
+    path,
+    handleChange,
+    config
+  } = props;
+  const inputProps = { step: '0.1' };
+  
+  const appliedUiSchemaOptions = merge({}, config, uischema.options);
+  const [inputValue, onChange] = useDebouncedChange(handleChange, '', data, path, eventToValue);
+
+  return (
+    <Input
+      keyboardType='numeric'
+      value={inputValue}
+      onChange={onChange}
+      className={className}
+      id={id}
+      disabled={!enabled}
+      autoFocus={appliedUiSchemaOptions.focus}
+    />
+  );
+});

@@ -19,7 +19,13 @@ const schema = {
       },
       "include_gift": {
         "type": "boolean",
-      }
+      },
+      "rating": {
+        "type": "number",
+      },
+      "recurrence_interval": {
+        "type": "integer"
+      },
     }
 }
 
@@ -37,6 +43,14 @@ const uischema = {
         "options": {
           "toggle": true
         }
+      },
+      {
+        "type": "Control",
+        "scope": "#/properties/rating"
+      },
+      {
+        "type": "Control",
+        "scope": "#/properties/recurrence"
       },
     ],
   }
@@ -75,7 +89,7 @@ const initialData = {
 //   description: 'Confirm if you have passed the subject\nHereby ...',
 //   done: true,
 //   recurrence: 'Daily',
-//   rating: 3
+  rating: 3
 };
 
 const renderers = [

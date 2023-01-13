@@ -1,19 +1,19 @@
 /*
   The MIT License
-  
-  Copyright (c) 2017-2019 EclipseSource Munich
+
+  Copyright (c) 2018-2019 EclipseSource Munich
   https://github.com/eclipsesource/jsonforms
-  
+
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
-  
+
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
-  
+
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -22,20 +22,22 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import TamaguiTextCell, { tamaguiTextCellTester } from './TamaguiTextCell';
-import TamaguiNumberCell, { tamaguiNumberCellTester } from './TamaguiNumberCell';
-import TamaguiIntegerCell, { tamaguiIntegerCellTester } from './TamaguiIntegerCell';
-import TamaguiBooleanSwitchCell, { tamaguiBooleanSwitchCellTester } from './TamaguiBooleanSwitchCell';
+import React from 'react';
+import {
+  ControlProps,
+  isIntegerControl,
+  RankedTester,
+  rankWith
+} from '@jsonforms/core';
+import { InputInteger } from '../tamagui-controls/InputInteger';
+import { withJsonFormsControlProps } from '@jsonforms/react';
+import { TamaguiInputControl } from './TamaguiInputControl';
 
-export {
-  TamaguiBooleanSwitchCell,
-  tamaguiBooleanSwitchCellTester,
-  TamaguiIntegerCell,
-  tamaguiIntegerCellTester,
-  TamaguiNumberCell,
-  tamaguiNumberCellTester,
-  TamaguiTextCell,
-  tamaguiTextCellTester,
-};
-import * as Customizable from './CustomizableCells';
-export { Customizable };
+export const TamaguiIntegerControl = (props: ControlProps) => (
+  <TamaguiInputControl {...props} input={InputInteger} />
+);
+export const tamaguiIntegerControlTester: RankedTester = rankWith(
+  2,
+  isIntegerControl
+);
+export default withJsonFormsControlProps(TamaguiIntegerControl);

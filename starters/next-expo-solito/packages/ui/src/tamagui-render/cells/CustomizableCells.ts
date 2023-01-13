@@ -22,12 +22,14 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-// export { MaterialBooleanCell } from './MaterialBooleanCell';
-// export { MaterialDateCell } from './MaterialDateCell';
-// export { MaterialEnumCell } from './MaterialEnumCell';
-// export { MaterialIntegerCell } from './MaterialIntegerCell';
-// export { MaterialNumberCell } from './MaterialNumberCell';
-// export { MaterialNumberFormatCell } from './MaterialNumberFormatCell';
-// export { MaterialOneOfEnumCell } from './MaterialOneOfEnumCell';
+// export { TamaguiBooleanCell } from './TamaguiBooleanCell';
+// export { TamaguiDateCell } from './TamaguiDateCell';
+// export { TamaguiEnumCell } from './TamaguiEnumCell';
+export { TamaguiIntegerCell } from './TamaguiIntegerCell';
+export { TamaguiNumberCell } from './TamaguiNumberCell';
+// export { TamaguiNumberFormatCell } from './TamaguiNumberFormatCell';
+// export { TamaguiOneOfEnumCell } from './TamaguiOneOfEnumCell';
 export { TamaguiTextCell } from './TamaguiTextCell';
-// export { MaterialTimeCell } from './MaterialTimeCell';
+
+
+// export { TamaguiTimeCell } from './TamaguiTimeCell';

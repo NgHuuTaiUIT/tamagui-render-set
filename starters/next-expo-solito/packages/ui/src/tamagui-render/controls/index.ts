@@ -22,121 +22,136 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-// import MaterialBooleanControl, {
-//   materialBooleanControlTester,
-//   MaterialBooleanControl as MaterialBooleanControlUnwrapped
-// } from './MaterialBooleanControl';
-// import MaterialBooleanToggleControl, {
-//   materialBooleanToggleControlTester,
-//   MaterialBooleanToggleControl as MaterialBooleanToggleControlUnwrapped
-// } from './MaterialBooleanToggleControl';
-// import MaterialEnumControl, {
-//   materialEnumControlTester,
-//   MaterialEnumControl as MaterialEnumControlUnwrapped
-// } from './MaterialEnumControl';
-// import MaterialNativeControl, {
-//   materialNativeControlTester,
-//   MaterialNativeControl as MaterialNativeControlUnwrapped
-// } from './MaterialNativeControl';
-// import MaterialDateControl, {
-//   materialDateControlTester,
-//   MaterialDateControl as MaterialDateControlUnwrapped
-// } from './MaterialDateControl';
-// import MaterialDateTimeControl, {
-//   materialDateTimeControlTester,
-//   MaterialDateTimeControl as MaterialDateTimeControlUnwrapped
-// } from './MaterialDateTimeControl';
-// import MaterialTimeControl, {
-//   materialTimeControlTester,
-//   MaterialTimeControl as MaterialTimeControlUnwrapped
-// } from './MaterialTimeControl';
-// import MaterialSliderControl, {
-//   materialSliderControlTester,
-//   MaterialSliderControl as MaterialSliderControlUnwrapped
-// } from './MaterialSliderControl';
-// import MaterialRadioGroupControl, {
-//   materialRadioGroupControlTester,
-//   MaterialRadioGroupControl as MaterialRadioGroupControlUnwrapped
-// } from './MaterialRadioGroupControl';
-// import MaterialIntegerControl, {
-//   materialIntegerControlTester,
-//   MaterialIntegerControl as MaterialIntegerControlUnwrapped
-// } from './MaterialIntegerControl';
-// import MaterialNumberControl, {
-//   materialNumberControlTester,
-//   MaterialNumberControl as MaterialNumberControlUnwrapped
+// import TamaguiBooleanControl, {
+//   tamaguiBooleanControlTester,
+//   TamaguiBooleanControl as TamaguiBooleanControlUnwrapped
+// } from './TamaguiBooleanControl';
+// import TamaguiBooleanToggleControl, {
+//   tamaguiBooleanToggleControlTester,
+//   TamaguiBooleanToggleControl as TamaguiBooleanToggleControlUnwrapped
+// } from './TamaguiBooleanToggleControl';
+// import TamaguiEnumControl, {
+//   tamaguiEnumControlTester,
+//   TamaguiEnumControl as TamaguiEnumControlUnwrapped
+// } from './TamaguiEnumControl';
+// import TamaguiNativeControl, {
+//   tamaguiNativeControlTester,
+//   TamaguiNativeControl as TamaguiNativeControlUnwrapped
+// } from './TamaguiNativeControl';
+// import TamaguiDateControl, {
+//   tamaguiDateControlTester,
+//   TamaguiDateControl as TamaguiDateControlUnwrapped
+// } from './TamaguiDateControl';
+// import TamaguiDateTimeControl, {
+//   tamaguiDateTimeControlTester,
+//   TamaguiDateTimeControl as TamaguiDateTimeControlUnwrapped
+// } from './TamaguiDateTimeControl';
+// import TamaguiTimeControl, {
+//   tamaguiTimeControlTester,
+//   TamaguiTimeControl as TamaguiTimeControlUnwrapped
+// } from './TamaguiTimeControl';
+// import TamaguiSliderControl, {
+//   tamaguiSliderControlTester,
+//   TamaguiSliderControl as TamaguiSliderControlUnwrapped
+// } from './TamaguiSliderControl';
+// import TamaguiRadioGroupControl, {
+//   tamaguiRadioGroupControlTester,
+//   TamaguiRadioGroupControl as TamaguiRadioGroupControlUnwrapped
+// } from './TamaguiRadioGroupControl';
+// import TamaguiIntegerControl, {
+//   tamaguiIntegerControlTester,
+//   TamaguiIntegerControl as TamaguiIntegerControlUnwrapped
+// } from './TamaguiIntegerControl';
+// import TamaguiNumberControl, {
+//   tamaguiNumberControlTester,
+//   TamaguiNumberControl as TamaguiNumberControlUnwrapped
 
 
-// } from './MaterialNumberControl';
+// } from './TamaguiNumberControl';
 import TamaguiTextControl, {
   tamaguiTextControlTester,
   TamaguiTextControl as TamaguiTextControlUnwrapped
 } from './TamaguiTextControl';
+import TamaguiIntegerControl, {
+  tamaguiIntegerControlTester,
+  TamaguiIntegerControl as TamaguiIntegerControlUnwrapped
+} from './TamaguiIntegerControl';
+import TamaguiNumberControl, {
+  tamaguiNumberControlTester,
+  TamaguiNumberControl as TamaguiNumberControlUnwrapped
+} from './TamaguiNumberControl';
+import TamaguiBooleanSwitchControl, {
+  tamaguiBooleanSwitchControlTester,
+  TamaguiBooleanSwitchControl as TamaguiBooleanSwitchControlUnwrapped
+} from './TamaguiBooleanSwitchControl';
+// import TamaguiAnyOfStringOrEnumControl, {
+//   tamaguiAnyOfStringOrEnumControlTester,
+//   TamaguiAnyOfStringOrEnumControl as TamaguiAnyOfStringOrEnumControlUnwrapped
+// } from './TamaguiAnyOfStringOrEnumControl';
 
-// import MaterialAnyOfStringOrEnumControl, {
-//   materialAnyOfStringOrEnumControlTester,
-//   MaterialAnyOfStringOrEnumControl as MaterialAnyOfStringOrEnumControlUnwrapped
-// } from './MaterialAnyOfStringOrEnumControl';
+// import TamaguiOneOfEnumControl, {
+//   tamaguiOneOfEnumControlTester,
+//   TamaguiOneOfEnumControl as TamaguiOneOfEnumControlUnwrapped
+// } from './TamaguiOneOfEnumControl';
 
-// import MaterialOneOfEnumControl, {
-//   materialOneOfEnumControlTester,
-//   MaterialOneOfEnumControl as MaterialOneOfEnumControlUnwrapped
-// } from './MaterialOneOfEnumControl';
-
-// import MaterialOneOfRadioGroupControl, {
-//   materialOneOfRadioGroupControlTester,
-//   MaterialOneOfRadioGroupControl as MaterialOneOfRadioGroupControlUnwrapped
-// } from './MaterialOneOfRadioGroupControl';
+// import TamaguiOneOfRadioGroupControl, {
+//   tamaguiOneOfRadioGroupControlTester,
+//   TamaguiOneOfRadioGroupControl as TamaguiOneOfRadioGroupControlUnwrapped
+// } from './TamaguiOneOfRadioGroupControl';
 
 export const Unwrapped = {
-  // MaterialBooleanControl: MaterialBooleanControlUnwrapped,
-  // MaterialBooleanToggleControl: MaterialBooleanToggleControlUnwrapped,
-  // MaterialEnumControl: MaterialEnumControlUnwrapped,
-  // MaterialNativeControl: MaterialNativeControlUnwrapped,
-  // MaterialDateControl: MaterialDateControlUnwrapped,
-  // MaterialDateTimeControl: MaterialDateTimeControlUnwrapped,
-  // MaterialTimeControl: MaterialTimeControlUnwrapped,
-  // MaterialSliderControl: MaterialSliderControlUnwrapped,
-  // MaterialRadioGroupControl: MaterialRadioGroupControlUnwrapped,
-  // MaterialIntegerControl: MaterialIntegerControlUnwrapped,
-  // MaterialNumberControl: MaterialNumberControlUnwrapped,
-  MaterialTextControl: TamaguiTextControlUnwrapped,
-  // MaterialAnyOfStringOrEnumControl: MaterialAnyOfStringOrEnumControlUnwrapped,
-  // MaterialOneOfEnumControl: MaterialOneOfEnumControlUnwrapped,
-  // MaterialOneOfRadioGroupControl: MaterialOneOfRadioGroupControlUnwrapped
+  // TamaguiBooleanControl: TamaguiBooleanControlUnwrapped,
+  // TamaguiBooleanToggleControl: TamaguiBooleanToggleControlUnwrapped,
+  // TamaguiEnumControl: TamaguiEnumControlUnwrapped,
+  // TamaguiNativeControl: TamaguiNativeControlUnwrapped,
+  // TamaguiDateControl: TamaguiDateControlUnwrapped,
+  // TamaguiDateTimeControl: TamaguiDateTimeControlUnwrapped,
+  // TamaguiTimeControl: TamaguiTimeControlUnwrapped,
+  // TamaguiSliderControl: TamaguiSliderControlUnwrapped,
+  // TamaguiRadioGroupControl: TamaguiRadioGroupControlUnwrapped,
+  TamaguiIntegerControl: TamaguiIntegerControlUnwrapped,
+  TamaguiNumberControl: TamaguiNumberControlUnwrapped,
+  TamaguiTextControl: TamaguiTextControlUnwrapped,
+  TamaguiBooleanSwitchControl: TamaguiBooleanSwitchControlUnwrapped,
+  // TamaguiAnyOfStringOrEnumControl: TamaguiAnyOfStringOrEnumControlUnwrapped,
+  // TamaguiOneOfEnumControl: TamaguiOneOfEnumControlUnwrapped,
+  // TamaguiOneOfRadioGroupControl: TamaguiOneOfRadioGroupControlUnwrapped
 };
 
 export {
-  // MaterialBooleanControl,
-  // materialBooleanControlTester,
-  // MaterialBooleanToggleControl,
-  // materialBooleanToggleControlTester,
-  // MaterialEnumControl,
-  // materialEnumControlTester,
-  // MaterialNativeControl,
-  // materialNativeControlTester,
-  // MaterialDateControl,
-  // materialDateControlTester,
-  // MaterialDateTimeControl,
-  // materialDateTimeControlTester,
-  // MaterialTimeControl,
-  // materialTimeControlTester,
-  // MaterialSliderControl,
-  // materialSliderControlTester,
-  // MaterialRadioGroupControl,
-  // materialRadioGroupControlTester,
-  // MaterialIntegerControl,
-  // materialIntegerControlTester,
-  // MaterialNumberControl,
-  // materialNumberControlTester,
+  // TamaguiBooleanControl,
+  // tamaguiBooleanControlTester,
+  // TamaguiBooleanToggleControl,
+  // tamaguiBooleanToggleControlTester,
+  // TamaguiEnumControl,
+  // tamaguiEnumControlTester,
+  // TamaguiNativeControl,
+  // tamaguiNativeControlTester,
+  // TamaguiDateControl,
+  // tamaguiDateControlTester,
+  // TamaguiDateTimeControl,
+  // tamaguiDateTimeControlTester,
+  // TamaguiTimeControl,
+  // tamaguiTimeControlTester,
+  // TamaguiSliderControl,
+  // tamaguiSliderControlTester,
+  // TamaguiRadioGroupControl,
+  // tamaguiRadioGroupControlTester,
+  TamaguiBooleanSwitchControl,
+  tamaguiBooleanSwitchControlTester,
+  TamaguiIntegerControl,
+  tamaguiIntegerControlTester,
+  TamaguiNumberControl,
+  tamaguiNumberControlTester,
   TamaguiTextControl,
   tamaguiTextControlTester,
-  // MaterialAnyOfStringOrEnumControl,
-  // materialAnyOfStringOrEnumControlTester,
-  // MaterialOneOfEnumControl,
-  // materialOneOfEnumControlTester,
-  // MaterialOneOfRadioGroupControl,
-  // materialOneOfRadioGroupControlTester
+  // TamaguiAnyOfStringOrEnumControl,
+  // tamaguiAnyOfStringOrEnumControlTester,
+  // TamaguiOneOfEnumControl,
+  // tamaguiOneOfEnumControlTester,
+  // TamaguiOneOfRadioGroupControl,
+  // tamaguiOneOfRadioGroupControlTester
 };
 
 export * from './TamaguiInputControl';
+
