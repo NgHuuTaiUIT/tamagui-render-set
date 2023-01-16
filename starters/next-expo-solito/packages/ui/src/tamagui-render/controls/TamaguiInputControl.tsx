@@ -61,12 +61,6 @@ export const TamaguiInputControl = (props: ControlProps & WithInput) => {
     appliedUiSchemaOptions.showUnfocusedDescription
   );
 
-  const firstFormHelperText = showDescription
-    ? description
-    : !isValid
-    ? errors
-    : null;
-  const secondFormHelperText = showDescription && !isValid ? errors : null;
   const InnerComponent = input;
 
   return (
