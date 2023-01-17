@@ -30,10 +30,10 @@
 //   tamaguiBooleanToggleControlTester,
 //   TamaguiBooleanToggleControl as TamaguiBooleanToggleControlUnwrapped
 // } from './TamaguiBooleanToggleControl';
-// import TamaguiEnumControl, {
-//   tamaguiEnumControlTester,
-//   TamaguiEnumControl as TamaguiEnumControlUnwrapped
-// } from './TamaguiEnumControl';
+import TamaguiEnumControl, {
+  tamaguiEnumControlTester,
+  TamaguiEnumControl as TamaguiEnumControlUnwrapped
+} from './TamaguiEnumControl';
 // import TamaguiNativeControl, {
 //   tamaguiNativeControlTester,
 //   TamaguiNativeControl as TamaguiNativeControlUnwrapped
@@ -89,10 +89,10 @@ import TamaguiBooleanSwitchControl, {
 //   TamaguiAnyOfStringOrEnumControl as TamaguiAnyOfStringOrEnumControlUnwrapped
 // } from './TamaguiAnyOfStringOrEnumControl';
 
-// import TamaguiOneOfEnumControl, {
-//   tamaguiOneOfEnumControlTester,
-//   TamaguiOneOfEnumControl as TamaguiOneOfEnumControlUnwrapped
-// } from './TamaguiOneOfEnumControl';
+import TamaguiOneOfEnumControl, {
+  tamaguiOneOfEnumControlTester,
+  TamaguiOneOfEnumControl as TamaguiOneOfEnumControlUnwrapped
+} from './TamaguiOneOfEnumControl';
 
 // import TamaguiOneOfRadioGroupControl, {
 //   tamaguiOneOfRadioGroupControlTester,
@@ -102,7 +102,7 @@ import TamaguiBooleanSwitchControl, {
 export const Unwrapped = {
   // TamaguiBooleanControl: TamaguiBooleanControlUnwrapped,
   // TamaguiBooleanToggleControl: TamaguiBooleanToggleControlUnwrapped,
-  // TamaguiEnumControl: TamaguiEnumControlUnwrapped,
+  TamaguiEnumControl: TamaguiEnumControlUnwrapped,
   // TamaguiNativeControl: TamaguiNativeControlUnwrapped,
   // TamaguiDateControl: TamaguiDateControlUnwrapped,
   // TamaguiDateTimeControl: TamaguiDateTimeControlUnwrapped,
@@ -114,7 +114,7 @@ export const Unwrapped = {
   TamaguiTextControl: TamaguiTextControlUnwrapped,
   TamaguiBooleanSwitchControl: TamaguiBooleanSwitchControlUnwrapped,
   // TamaguiAnyOfStringOrEnumControl: TamaguiAnyOfStringOrEnumControlUnwrapped,
-  // TamaguiOneOfEnumControl: TamaguiOneOfEnumControlUnwrapped,
+  TamaguiOneOfEnumControl: TamaguiOneOfEnumControlUnwrapped,
   // TamaguiOneOfRadioGroupControl: TamaguiOneOfRadioGroupControlUnwrapped
 };
 
@@ -123,8 +123,8 @@ export {
   // tamaguiBooleanControlTester,
   // TamaguiBooleanToggleControl,
   // tamaguiBooleanToggleControlTester,
-  // TamaguiEnumControl,
-  // tamaguiEnumControlTester,
+  TamaguiEnumControl,
+  tamaguiEnumControlTester,
   // TamaguiNativeControl,
   // tamaguiNativeControlTester,
   // TamaguiDateControl,
@@ -147,8 +147,8 @@ export {
   tamaguiTextControlTester,
   // TamaguiAnyOfStringOrEnumControl,
   // tamaguiAnyOfStringOrEnumControlTester,
-  // TamaguiOneOfEnumControl,
-  // tamaguiOneOfEnumControlTester,
+  TamaguiOneOfEnumControl,
+  tamaguiOneOfEnumControlTester,
   // TamaguiOneOfRadioGroupControl,
   // tamaguiOneOfRadioGroupControlTester
 };

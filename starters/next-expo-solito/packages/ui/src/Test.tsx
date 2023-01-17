@@ -26,6 +26,21 @@ const schema = {
       "recurrence_interval": {
         "type": "integer"
       },
+      "age": {
+        "type": "integer",
+        "description": "Please enter your age."
+      },
+      "nationality": {
+        "type": "string",
+        "enum": [
+          "DE",
+          "IT",
+          "JP",
+          "US",
+          "RU",
+          "Other"
+        ]
+      },
     }
 }
 
@@ -50,7 +65,15 @@ const uischema = {
       },
       {
         "type": "Control",
-        "scope": "#/properties/recurrence"
+        "scope": "#/properties/recurrence_interval"
+      },
+      {
+        "type": "Control",
+        "scope": "#/properties/age"
+      },
+      {
+        "type": "Control",
+        "scope": "#/properties/nationality"
       },
     ],
   }
@@ -89,7 +112,9 @@ const initialData = {
 //   description: 'Confirm if you have passed the subject\nHereby ...',
 //   done: true,
 //   recurrence: 'Daily',
-  rating: 3
+  rating: 3,
+  age: 34,
+  nationality: "IT"
 };
 
 const renderers = [

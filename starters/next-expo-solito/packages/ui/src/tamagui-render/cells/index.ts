@@ -26,7 +26,10 @@ import TamaguiTextCell, { tamaguiTextCellTester } from './TamaguiTextCell';
 import TamaguiNumberCell, { tamaguiNumberCellTester } from './TamaguiNumberCell';
 import TamaguiIntegerCell, { tamaguiIntegerCellTester } from './TamaguiIntegerCell';
 import TamaguiBooleanSwitchCell, { tamaguiBooleanSwitchCellTester } from './TamaguiBooleanSwitchCell';
-
+import TamaguiEnumCell, { tamaguiEnumCellTester } from './TamaguiEnumCell';
+import TamaguiOneOfEnumCell, {
+  tamaguiOneOfEnumCellTester
+} from './TamaguiOneOfEnumCell';
 export {
   TamaguiBooleanSwitchCell,
   tamaguiBooleanSwitchCellTester,
@@ -36,6 +39,10 @@ export {
   tamaguiNumberCellTester,
   TamaguiTextCell,
   tamaguiTextCellTester,
+  TamaguiEnumCell,
+  tamaguiEnumCellTester,
+  TamaguiOneOfEnumCell,
+  tamaguiOneOfEnumCellTester
 };
 import * as Customizable from './CustomizableCells';
 export { Customizable };
