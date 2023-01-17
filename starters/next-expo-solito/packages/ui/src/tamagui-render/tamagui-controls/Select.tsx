@@ -24,8 +24,8 @@
 */
 import React, { useMemo } from 'react';
 import { EnumCellProps, WithClassname } from '@jsonforms/core';
-import { Check, ChevronDown, ChevronUp, YStack, LinearGradient } from '@tamagui/lucide-icons'
-import { Adapt, Select, Sheet } from 'tamagui';
+import { Check, ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
+import { Adapt, Select, Sheet, LinearGradient, YStack } from 'tamagui';
 import merge from 'lodash/merge';
 import { TranslateProps } from '@jsonforms/react';
 import { i18nDefaults } from '../util';
