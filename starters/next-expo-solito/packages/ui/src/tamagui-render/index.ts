@@ -22,10 +22,7 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import {
-  JsonFormsCellRendererRegistryEntry,
-  JsonFormsRendererRegistryEntry
-} from '@jsonforms/core';
+import { JsonFormsCellRendererRegistryEntry, JsonFormsRendererRegistryEntry } from '@jsonforms/core'
 // import {
 //   tamaguiAllOfControlTester,
 //   TamaguiAllOfRenderer,
@@ -82,19 +79,19 @@ import {
   tamaguiTextControlTester,
   // TamaguiOneOfRadioGroupControl,
   // tamaguiOneOfRadioGroupControlTester
-} from './controls';
-// import {
-//   TamaguiArrayLayout,
-//   tamaguiArrayLayoutTester,
-//   TamaguiCategorizationLayout,
-//   tamaguiCategorizationTester,
-//   TamaguiGroupLayout,
-//   tamaguiGroupTester,
-//   TamaguiHorizontalLayout,
-//   tamaguiHorizontalLayoutTester,
-//   TamaguiVerticalLayout,
-//   tamaguiVerticalLayoutTester
-// } from './layouts';
+} from './controls'
+import {
+  //   TamaguiArrayLayout,
+  //   tamaguiArrayLayoutTester,
+  //   TamaguiCategorizationLayout,
+  //   tamaguiCategorizationTester,
+  TamaguiGroupLayout,
+  tamaguiGroupTester,
+  TamaguiHorizontalLayout,
+  tamaguiHorizontalLayoutTester,
+  TamaguiVerticalLayout,
+  tamaguiVerticalLayoutTester,
+} from './layouts'
 import {
   // TamaguiBooleanCell,
   // tamaguiBooleanCellTester,
@@ -116,17 +113,17 @@ import {
   tamaguiTextCellTester,
   // TamaguiTimeCell,
   // tamaguiTimeCellTester
-} from './cells';
+} from './cells'
 // import TamaguiCategorizationStepperLayout, {
 //   tamaguiCategorizationStepperTester
 // } from './layouts/TamaguiCategorizationStepperLayout';
 
 // export * from './complex';
-export * from './controls';
-// export * from './layouts';
-export * from './cells';
-export * from './tamagui-controls';
-export * from './util';
+export * from './controls'
+export * from './layouts'
+export * from './cells'
+export * from './tamagui-controls'
+export * from './util'
 
 export const tamaguiRenderers: JsonFormsRendererRegistryEntry[] = [
   { tester: tamaguiTextControlTester, renderer: TamaguiTextControl },
@@ -135,7 +132,14 @@ export const tamaguiRenderers: JsonFormsRendererRegistryEntry[] = [
   { tester: tamaguiIntegerControlTester, renderer: TamaguiIntegerControl },
   { tester: tamaguiNumberControlTester, renderer: TamaguiNumberControl },
   { tester: tamaguiOneOfEnumControlTester, renderer: TamaguiOneOfEnumControl },
-];
+  // layouts
+  { tester: tamaguiGroupTester, renderer: TamaguiGroupLayout },
+  {
+    tester: tamaguiHorizontalLayoutTester,
+    renderer: TamaguiHorizontalLayout,
+  },
+  { tester: tamaguiVerticalLayoutTester, renderer: TamaguiVerticalLayout },
+]
 
 export const tamaguiCells: JsonFormsCellRendererRegistryEntry[] = [
   { tester: tamaguiTextCellTester, cell: TamaguiTextCell },
@@ -144,4 +148,4 @@ export const tamaguiCells: JsonFormsCellRendererRegistryEntry[] = [
   { tester: tamaguiIntegerCellTester, cell: TamaguiIntegerCell },
   { tester: tamaguiNumberCellTester, cell: TamaguiNumberCell },
   { tester: tamaguiOneOfEnumCellTester, cell: TamaguiOneOfEnumCell },
-];
+]

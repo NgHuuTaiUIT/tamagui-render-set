@@ -23,39 +23,40 @@
   THE SOFTWARE.
 */
 import React from 'react';
-import { CellProps, WithClassname } from '@jsonforms/core';
-import { Input } from 'tamagui';
-import merge from 'lodash/merge';
-import {useDebouncedChange} from '../util';
+import {
+  LayoutProps,
+  RankedTester,
+  rankWith,
+  uiTypeIs,
+  VerticalLayout,
+} from '@jsonforms/core';
+import {
+  TamaguiLayoutRenderer,
+  TamaguiLayoutRendererProps
+} from '../util/layout';
+import { withJsonFormsLayoutProps } from '@jsonforms/react';
 
-const toNumber = (value: string) =>
-    value === '' ? undefined : parseFloat(value);
-const eventToValue = (ev:any) => toNumber(ev.target.value);
-export const InputNumber = React.memo((props: CellProps & WithClassname) => {
-  const {
-    data,
-    className,
-    id,
-    enabled,
-    uischema,
+/**
+ * Default tester for a vertical layout.
+ * @type {RankedTester}
+ */
+export const tamaguiVerticalLayoutTester: RankedTester = rankWith(
+  1,
+  uiTypeIs('VerticalLayout')
+);
+
+export const TamaguiVerticalLayoutRenderer = ({ uischema, schema, path, enabled, visible, renderers, cells }: LayoutProps) => {
+  const verticalLayout = uischema as VerticalLayout;
+  const childProps: TamaguiLayoutRendererProps = {
+    elements: verticalLayout.elements,
+    schema,
     path,
-    handleChange,
-    config
-  } = props;
-  const inputProps = { step: '0.1' };
-  
-  const appliedUiSchemaOptions = merge({}, config, uischema.options);
-  const [inputValue, onChange] = useDebouncedChange(handleChange, '', data, path, eventToValue);
+    enabled,
+    direction: 'column',
+    visible
+  };
 
-  return (
-    <Input
-      keyboardType='decimal-pad'
-      value={inputValue}
-      onChange={onChange}
-      className={className}
-      id={id}
-      disabled={!enabled}
-      autoFocus={appliedUiSchemaOptions.focus}
-    />
-  );
-});
+  return <TamaguiLayoutRenderer {...childProps} renderers={renderers} cells={cells} />;
+};
+
+export default withJsonFormsLayoutProps(TamaguiVerticalLayoutRenderer);

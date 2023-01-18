@@ -1,8 +1,8 @@
 import { Fragment, useState, useMemo } from 'react';
 import { JsonForms } from '@jsonforms/react';
 import { H1, Heading, Label, Stack, YStack, Button, styled, Paragraph } from 'tamagui';
-// import schema from './schema.json';
-// import uischema from './uischema.json';
+// import schema from './json-forms/schema';
+// import uischema from './json-forms/uischema';
 import {
   tamaguiCells,
   tamaguiRenderers
@@ -10,74 +10,6 @@ import {
 
 import MyGroupRenderer, { myGroupTester } from './MyGroup';
 
-const schema = {
-    "type": "object",
-    "properties": {
-      "name": {
-        "type": "string",
-        "minLength": 1
-      },
-      "include_gift": {
-        "type": "boolean",
-      },
-      "rating": {
-        "type": "number",
-      },
-      "recurrence_interval": {
-        "type": "integer"
-      },
-      "age": {
-        "type": "integer",
-        "description": "Please enter your age."
-      },
-      "nationality": {
-        "type": "string",
-        "enum": [
-          "DE",
-          "IT",
-          "JP",
-          "US",
-          "RU",
-          "Other"
-        ]
-      },
-    }
-}
-
-const uischema = {
-    "label": "My Group!",
-    "type": "Group",
-    "elements": [
-      {
-        "type": "Control",
-        "scope": "#/properties/name"
-      },
-      {
-        "type": "Control",
-        "scope": "#/properties/include_gift",
-        "options": {
-          "toggle": true
-        }
-      },
-      {
-        "type": "Control",
-        "scope": "#/properties/rating"
-      },
-      {
-        "type": "Control",
-        "scope": "#/properties/recurrence_interval"
-      },
-      {
-        "type": "Control",
-        "scope": "#/properties/age"
-      },
-      {
-        "type": "Control",
-        "scope": "#/properties/nationality"
-      },
-    ],
-  }
-  
 
 const Container = styled(YStack, {
     padding: '1em',
@@ -107,15 +39,6 @@ const Demoform = styled(YStack ,{
         padding: '1rem'
 })
 
-const initialData = {
-  name: 'Send email to Adrian',
-//   description: 'Confirm if you have passed the subject\nHereby ...',
-//   done: true,
-//   recurrence: 'Daily',
-  rating: 3,
-  age: 34,
-  nationality: "IT"
-};
 
 const renderers = [
   ...tamaguiRenderers,
@@ -124,7 +47,7 @@ const renderers = [
   { tester: myGroupTester, renderer: MyGroupRenderer }
 ];
 
-const Test = () => {
+const Test = ({schema, uischema, initialData}) => {
 //   const classes = useStyles();
   const [data, setData] = useState<any>(initialData);
   const stringifiedData = useMemo(() => JSON.stringify(data, null, 2), [data]);

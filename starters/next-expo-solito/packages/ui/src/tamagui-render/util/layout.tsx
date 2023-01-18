@@ -60,7 +60,7 @@ export const renderLayoutElements = (
   ));
 };
 
-export interface MaterialLayoutRendererProps extends OwnPropsOfRenderer {
+export interface TamaguiLayoutRendererProps extends OwnPropsOfRenderer {
   elements: UISchemaElement[];
   direction: 'row' | 'column';
 }
@@ -74,7 +74,7 @@ const TamaguiLayoutRendererComponent =
     direction,
     renderers,
     cells
-  }: MaterialLayoutRendererProps) => {
+  }: TamaguiLayoutRendererProps) => {
     if (isEmpty(elements)) {
       return null;
     } else {
@@ -111,6 +111,6 @@ export const withAjvProps = <P extends {}>(Component: ComponentType<AjvProps & P
     return (<Component {...props} ajv={ajv} />);
   };
 
-export interface MaterialLabelableLayoutRendererProps extends MaterialLayoutRendererProps {
+export interface TamaguiLabelableLayoutRendererProps extends TamaguiLayoutRendererProps {
   label?: string;
 }

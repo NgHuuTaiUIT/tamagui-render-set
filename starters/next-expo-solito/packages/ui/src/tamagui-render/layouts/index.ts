@@ -22,40 +22,31 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import React from 'react';
-import { CellProps, WithClassname } from '@jsonforms/core';
-import { Input } from 'tamagui';
-import merge from 'lodash/merge';
-import {useDebouncedChange} from '../util';
+import TamaguiGroupLayout, {
+  tamaguiGroupTester
+} from './TamaguiGroupLayout';
+import TamaguiHorizontalLayout, {
+  tamaguiHorizontalLayoutTester
+} from './TamaguiHorizontalLayout';
+import TamaguiVerticalLayout, {
+  tamaguiVerticalLayoutTester
+} from './TamaguiVerticalLayout';
+// import TamaguiCategorizationLayout, {
+//   tamaguiCategorizationTester
+// } from './TamaguiCategorizationLayout';
+// import TamaguiArrayLayout, {
+//   tamaguiArrayLayoutTester
+// } from './TamaguiArrayLayoutRenderer';
 
-const toNumber = (value: string) =>
-    value === '' ? undefined : parseFloat(value);
-const eventToValue = (ev:any) => toNumber(ev.target.value);
-export const InputNumber = React.memo((props: CellProps & WithClassname) => {
-  const {
-    data,
-    className,
-    id,
-    enabled,
-    uischema,
-    path,
-    handleChange,
-    config
-  } = props;
-  const inputProps = { step: '0.1' };
-  
-  const appliedUiSchemaOptions = merge({}, config, uischema.options);
-  const [inputValue, onChange] = useDebouncedChange(handleChange, '', data, path, eventToValue);
-
-  return (
-    <Input
-      keyboardType='decimal-pad'
-      value={inputValue}
-      onChange={onChange}
-      className={className}
-      id={id}
-      disabled={!enabled}
-      autoFocus={appliedUiSchemaOptions.focus}
-    />
-  );
-});
+export {
+  // tamaguiArrayLayoutTester,
+  // TamaguiArrayLayout,
+  // TamaguiCategorizationLayout,
+  // tamaguiCategorizationTester,
+  TamaguiGroupLayout,
+  tamaguiGroupTester,
+  TamaguiHorizontalLayout,
+  tamaguiHorizontalLayoutTester,
+  TamaguiVerticalLayout,
+  tamaguiVerticalLayoutTester
+};

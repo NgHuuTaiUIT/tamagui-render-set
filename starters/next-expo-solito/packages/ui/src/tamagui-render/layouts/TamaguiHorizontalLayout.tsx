@@ -23,39 +23,40 @@
   THE SOFTWARE.
 */
 import React from 'react';
-import { CellProps, WithClassname } from '@jsonforms/core';
-import { Input } from 'tamagui';
-import merge from 'lodash/merge';
-import {useDebouncedChange} from '../util';
+import {
+  HorizontalLayout,
+  LayoutProps,
+  RankedTester,
+  rankWith,
+  uiTypeIs,
+} from '@jsonforms/core';
+import { withJsonFormsLayoutProps } from '@jsonforms/react';
+import {
+  TamaguiLayoutRenderer,
+  TamaguiLayoutRendererProps
+} from '../util/layout';
 
-const toNumber = (value: string) =>
-    value === '' ? undefined : parseFloat(value);
-const eventToValue = (ev:any) => toNumber(ev.target.value);
-export const InputNumber = React.memo((props: CellProps & WithClassname) => {
-  const {
-    data,
-    className,
-    id,
-    enabled,
-    uischema,
+/**
+ * Default tester for a horizontal layout.
+ * @type {RankedTester}
+ */
+export const tamaguiHorizontalLayoutTester: RankedTester = rankWith(
+  2,
+  uiTypeIs('HorizontalLayout')
+);
+
+export const TamaguiHorizontalLayoutRenderer = ({ uischema, renderers, cells, schema, path, enabled, visible }: LayoutProps) => {
+  const layout = uischema as HorizontalLayout;
+  const childProps: TamaguiLayoutRendererProps = {
+    elements: layout.elements,
+    schema,
     path,
-    handleChange,
-    config
-  } = props;
-  const inputProps = { step: '0.1' };
-  
-  const appliedUiSchemaOptions = merge({}, config, uischema.options);
-  const [inputValue, onChange] = useDebouncedChange(handleChange, '', data, path, eventToValue);
+    enabled,
+    direction: 'row',
+    visible
+  };
 
-  return (
-    <Input
-      keyboardType='decimal-pad'
-      value={inputValue}
-      onChange={onChange}
-      className={className}
-      id={id}
-      disabled={!enabled}
-      autoFocus={appliedUiSchemaOptions.focus}
-    />
-  );
-});
+  return <TamaguiLayoutRenderer {...childProps} renderers={renderers} cells={cells} />;
+};
+
+export default withJsonFormsLayoutProps(TamaguiHorizontalLayoutRenderer);

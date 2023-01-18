@@ -22,37 +22,23 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import React from 'react';
-import {
-  showAsRequired,
-  ControlProps,
-  isDescriptionHidden,
-} from '@jsonforms/core';
+import React from 'react'
+import { showAsRequired, ControlProps, isDescriptionHidden } from '@jsonforms/core'
 
-import { YStack, Label } from 'tamagui';
+import { YStack, Label, Paragraph, VisuallyHidden } from 'tamagui'
 // import { FormControl, FormHelperText } from '@mui/material';
-import merge from 'lodash/merge';
-import { useFocus } from '../util';
+import merge from 'lodash/merge'
+import { useFocus } from '../util'
 
 export interface WithInput {
-  input: any;
+  input: any
 }
 
 export const TamaguiInputControl = (props: ControlProps & WithInput) => {
-  const [focused, onFocus, onBlur] = useFocus();
-  const {
-    id,
-    description,
-    errors,
-    label,
-    uischema,
-    visible,
-    required,
-    config,
-    input
-  } = props;
-  const isValid = errors.length === 0;
-  const appliedUiSchemaOptions = merge({}, config, uischema.options);
+  const [focused, onFocus, onBlur] = useFocus()
+  const { id, description, errors, label, uischema, visible, required, config, input } = props
+  const isValid = errors.length === 0
+  const appliedUiSchemaOptions = merge({}, config, uischema.options)
 
   const showDescription = !isDescriptionHidden(
     visible,
@@ -61,38 +47,30 @@ export const TamaguiInputControl = (props: ControlProps & WithInput) => {
     appliedUiSchemaOptions.showUnfocusedDescription
   );
 
-  const InnerComponent = input;
+  const firstFormHelperText = showDescription
+    ? description
+    : !isValid
+    ? errors
+    : null;
+  const secondFormHelperText = showDescription && !isValid ? errors : null;
+  const InnerComponent = input
 
   return (
     <YStack>
-      {/* <FormControl
-        fullWidth={!appliedUiSchemaOptions.trim}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        id={id}
-        variant={'standard'}
-      > */}
-        <Label
-          // htmlFor={id + '-input'}
-          // error={!isValid}
-          // required={showAsRequired(required,
-          //   appliedUiSchemaOptions.hideRequiredAsterisk)}
-        >
-          {label}
-        </Label>
-        <InnerComponent
-          {...props}
-          id={id + '-input'}
-          isValid={isValid}
-          visible={visible}
-        />
-        {/* <FormHelperText error={!isValid && !showDescription}>
+      <Label htmlFor={id + '-input'} color={!isValid ? '$red10Light' : ''}>
+        {label} {required && '*'}
+      </Label>
+      <InnerComponent {...props} id={id + '-input'} isValid={isValid} visible={visible} />
+      <VisuallyHidden visible={!isValid && !showDescription}>
+        <Paragraph size="$2" fow="500" >
           {firstFormHelperText}
-        </FormHelperText>
-        <FormHelperText error={!isValid}>
+        </Paragraph>
+      </VisuallyHidden>
+      <VisuallyHidden visible={!isValid}>
+        <Paragraph size="$2" fow="500" color="$red10Light">
           {secondFormHelperText}
-        </FormHelperText> */}
-      {/* </FormControl> */}
+        </Paragraph>
+      </VisuallyHidden>
     </YStack>
-  );
-};
+  )
+}

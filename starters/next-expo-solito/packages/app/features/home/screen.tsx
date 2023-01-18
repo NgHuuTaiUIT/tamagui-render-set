@@ -1,8 +1,12 @@
-import { Anchor, Button, H1, Input, Paragraph, Separator, Sheet, Stack, XStack, YStack } from '@my/ui'
+import { Anchor, Button, H1, Input, Paragraph, Separator, Sheet, Stack, VisuallyHidden, XStack, YStack } from '@my/ui'
 import Test from '@my/ui/dist/jsx/Test'
 import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
 import React, { useState } from 'react'
 import { useLink } from 'solito/link'
+import schema from '../../json-forms/schema2';
+import uischema from '../../json-forms/uischema2';
+import initialData from '../../json-forms/initialData';
+
 
 export function HomeScreen() {
   const linkProps = useLink({
@@ -19,6 +23,7 @@ export function HomeScreen() {
         </Paragraph>
 
         <Separator />
+        <VisuallyHidden visible={true}>
         <Paragraph ta="center">
           Made by{' '}
           <Anchor color="$color12" href="https://twitter.com/natebirdman" target="_blank">
@@ -34,6 +39,8 @@ export function HomeScreen() {
             give it a ⭐️
           </Anchor>
         </Paragraph>
+        </VisuallyHidden>
+
       </Stack>
 
       <XStack>
@@ -49,7 +56,7 @@ function SheetDemo() {
   const [open, setOpen] = useState(false)
   const [position, setPosition] = useState(0)
   return (
-    <Test/>
+    <Test schema={schema} uischema={uischema} initialData={initialData}/>
     // <>
     //   <Button
     //     size="$6"
