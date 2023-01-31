@@ -32,7 +32,11 @@ export default  {
     "toggle": {
       "type": "boolean",
       "description": "The \"toggle\" option renders boolean values as a toggle."
-    }
+    },
+    "birthDate": {
+      "type": "string",
+      "format": "date"
+    },
   },
   "required": [
     "hideRequiredAsterisk",

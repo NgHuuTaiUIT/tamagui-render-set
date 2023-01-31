@@ -1,6 +1,4 @@
-// import { Text, TextProps } from '@mui/material';
-import { Text, TextProps } from 'tamagui';
-
+import { TextField, TextFieldProps } from '@mui/material';
 import dayjs from 'dayjs';
 import customParsing from 'dayjs/plugin/customParseFormat';
 import React, { useRef} from 'react';
@@ -41,7 +39,7 @@ interface InputRef {
   toShow: string;
 }
 
-type ResettableTextFieldProps = TextProps & {
+type ResettableTextFieldProps = TextFieldProps & {
   rawValue: any;
   dayjsValueIsValid: boolean;
   valueInInputFormat: string;
@@ -54,22 +52,22 @@ type ResettableTextFieldProps = TextProps & {
  * The 'ResettableTextField' component adjusts the text field to reflect the actual value stored in the data
  * once it's no longer 'focused', i.e. when the user stops editing.
  */
-// export const ResettableTextField: React.FC<ResettableTextFieldProps> = ({ rawValue, dayjsValueIsValid, valueInInputFormat, focused, , ...props }) => {
-//   const value = useRef<InputRef>({ lastInput: inputProps?.value, toShow: inputProps?.value });
-//   if (!focused) {
-//     // The input text is not focused, therefore let's show the value actually stored in the data
-//     if (!dayjsValueIsValid) {
-//       // pass through the "raw" value in case it can't be formatted by dayjs
-//       value.current.toShow = typeof rawValue === 'string' || rawValue === null || rawValue === undefined ? rawValue : JSON.stringify(rawValue)
-//     } else {
-//       // otherwise use the specified format
-//       value.current.toShow = valueInInputFormat;
-//     }
-//   }
-//   if (focused && inputProps?.value !== value.current.lastInput) {
-//     // Show the current text the user is typing into the text input
-//     value.current.lastInput = inputProps?.value;
-//     value.current.toShow = inputProps?.value;
-//   }
-//   return <Text {...props} inputProps={{ ...inputProps, value: value.current.toShow || '' }} />
-// }
+export const ResettableTextField: React.FC<ResettableTextFieldProps> = ({ rawValue, dayjsValueIsValid, valueInInputFormat, focused, inputProps, ...props }) => {
+  const value = useRef<InputRef>({ lastInput: inputProps?.value, toShow: inputProps?.value });
+  if (!focused) {
+    // The input text is not focused, therefore let's show the value actually stored in the data
+    if (!dayjsValueIsValid) {
+      // pass through the "raw" value in case it can't be formatted by dayjs
+      value.current.toShow = typeof rawValue === 'string' || rawValue === null || rawValue === undefined ? rawValue : JSON.stringify(rawValue)
+    } else {
+      // otherwise use the specified format
+      value.current.toShow = valueInInputFormat;
+    }
+  }
+  if (focused && inputProps?.value !== value.current.lastInput) {
+    // Show the current text the user is typing into the text input
+    value.current.lastInput = inputProps?.value;
+    value.current.toShow = inputProps?.value;
+  }
+  return <TextField {...props} inputProps={{ ...inputProps, value: value.current.toShow || '' }} />
+}

@@ -55,8 +55,8 @@ import {
   // tamaguiBooleanControlTester,
   TamaguiBooleanSwitchControl,
   tamaguiBooleanSwitchControlTester,
-  // TamaguiDateControl,
-  // tamaguiDateControlTester,
+  TamaguiDateControl,
+  tamaguiDateControlTester,
   // TamaguiDateTimeControl,
   // tamaguiDateTimeControlTester,
   // TamaguiTimeControl,
@@ -97,8 +97,8 @@ import {
   // tamaguiBooleanCellTester,
   TamaguiBooleanSwitchCell,
   tamaguiBooleanSwitchCellTester,
-  // TamaguiDateCell,
-  // tamaguiDateCellTester,
+  TamaguiDateCell,
+  tamaguiDateCellTester,
   TamaguiEnumCell,
   tamaguiEnumCellTester,
   TamaguiIntegerCell,
@@ -132,6 +132,8 @@ export const tamaguiRenderers: JsonFormsRendererRegistryEntry[] = [
   { tester: tamaguiIntegerControlTester, renderer: TamaguiIntegerControl },
   { tester: tamaguiNumberControlTester, renderer: TamaguiNumberControl },
   { tester: tamaguiOneOfEnumControlTester, renderer: TamaguiOneOfEnumControl },
+  { tester: tamaguiDateControlTester, renderer: TamaguiDateControl },
+
   // layouts
   { tester: tamaguiGroupTester, renderer: TamaguiGroupLayout },
   {
@@ -148,4 +150,5 @@ export const tamaguiCells: JsonFormsCellRendererRegistryEntry[] = [
   { tester: tamaguiIntegerCellTester, cell: TamaguiIntegerCell },
   { tester: tamaguiNumberCellTester, cell: TamaguiNumberCell },
   { tester: tamaguiOneOfEnumCellTester, cell: TamaguiOneOfEnumCell },
+  { tester: tamaguiDateCellTester, cell: TamaguiDateCell },
 ]

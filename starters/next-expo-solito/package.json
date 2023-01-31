@@ -25,7 +25,16 @@
     "react-native-web": "0.18.9"
   },
   "dependencies": {
-    "@babel/runtime": "^7.18.9"
+    "@babel/runtime": "^7.18.9",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.7",
+    "@mui/x-date-pickers": "^5.0.16",
+    "@react-native-community/datetimepicker": "^6.7.3",
+    "date-fns": "^2.29.3",
+    "react-day-picker": "^8.4.1",
+    "react-device-detect": "^2.2.2",
+    "react-native-date-picker": "^4.2.6"
   },
   "devDependencies": {
     "@jsonforms/core": "^3.0.0",

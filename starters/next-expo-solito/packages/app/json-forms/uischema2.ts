@@ -50,6 +50,10 @@ export default {
       "options": {
         "toggle": true
       }
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/birthDate"
     }
   ]
 }

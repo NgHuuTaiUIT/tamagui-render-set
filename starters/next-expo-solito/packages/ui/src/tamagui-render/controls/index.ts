@@ -38,10 +38,10 @@ import TamaguiEnumControl, {
 //   tamaguiNativeControlTester,
 //   TamaguiNativeControl as TamaguiNativeControlUnwrapped
 // } from './TamaguiNativeControl';
-// import TamaguiDateControl, {
-//   tamaguiDateControlTester,
-//   TamaguiDateControl as TamaguiDateControlUnwrapped
-// } from './TamaguiDateControl';
+import TamaguiDateControl, {
+  tamaguiDateControlTester,
+  TamaguiDateControl as TamaguiDateControlUnwrapped
+} from './TamaguiDateControl';
 // import TamaguiDateTimeControl, {
 //   tamaguiDateTimeControlTester,
 //   TamaguiDateTimeControl as TamaguiDateTimeControlUnwrapped
@@ -104,7 +104,7 @@ export const Unwrapped = {
   // TamaguiBooleanToggleControl: TamaguiBooleanToggleControlUnwrapped,
   TamaguiEnumControl: TamaguiEnumControlUnwrapped,
   // TamaguiNativeControl: TamaguiNativeControlUnwrapped,
-  // TamaguiDateControl: TamaguiDateControlUnwrapped,
+  TamaguiDateControl: TamaguiDateControlUnwrapped,
   // TamaguiDateTimeControl: TamaguiDateTimeControlUnwrapped,
   // TamaguiTimeControl: TamaguiTimeControlUnwrapped,
   // TamaguiSliderControl: TamaguiSliderControlUnwrapped,
@@ -127,8 +127,8 @@ export {
   tamaguiEnumControlTester,
   // TamaguiNativeControl,
   // tamaguiNativeControlTester,
-  // TamaguiDateControl,
-  // tamaguiDateControlTester,
+  TamaguiDateControl,
+  tamaguiDateControlTester,
   // TamaguiDateTimeControl,
   // tamaguiDateTimeControlTester,
   // TamaguiTimeControl,
