@@ -56,9 +56,8 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
     backgroundColor: theme.jsonforms?.input?.delete?.background,
     borderRadius: '50%',
   })
-  console.log(props);
   return (
-    <XStack ai="center" space="$2">
+    <XStack ai="center" space="$2" w='100%'>
       <Input
         secureTextEntry={appliedUiSchemaOptions.format === 'password'}
         value={inputText}
@@ -69,6 +68,7 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
         autoFocus={appliedUiSchemaOptions.focus}
         multiline={appliedUiSchemaOptions.multi}
         {...inputProps}
+        minWidth='300px'
         // onPointerEnter={onPointerEnter}
         // onPointerLeave={onPointerLeave}
       />

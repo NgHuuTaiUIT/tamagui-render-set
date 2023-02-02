@@ -24,22 +24,26 @@
 */
 import React from 'react'
 import { CellProps, WithClassname } from '@jsonforms/core'
-import { Label, Separator, Switch, XStack, TamaguiComponentPropsBase } from 'tamagui'
+import { Label, Separator, Switch, XStack, Stack, Button, styled } from 'tamagui'
 import merge from 'lodash/merge'
-
-export const TamaguiSwitch = React.memo((props: CellProps & WithClassname) => {
+import { CheckSquare, Check } from '@tamagui/lucide-icons'
+export const TamaguiCheckBox = React.memo((props: CellProps & WithClassname) => {
   const { data, className, id, enabled, uischema, path, handleChange, config } = props
-  const appliedUiSchemaOptions = merge({}, config, uischema.options)
-  const inputProps = { autoFocus: !!appliedUiSchemaOptions.focus }
-  const checked = !!data
 
+  const appliedUiSchemaOptions = merge({}, config, uischema.options)
+  const checked = !!data
+  const CustomSwitch = styled(Switch, {
+    maw: 27,
+    mah: 20,
+  })
   return (
-    <XStack miw={200} ai="center" space="$4">
-      <Label pr="$0" miw={90} jc="flex-end" size="$3" htmlFor={id} numberOfLines={1}>
-        {uischema.label}
-      </Label>
-      <Separator mih={20} vertical />
-      <Switch
+    <XStack miw={200} ai="center" space="$4" my="$4">
+      {uischema.label && (
+        <Label pr="$0" miw={90} jc="flex-end" size="$3" htmlFor={id}>
+          {uischema.label}
+        </Label>
+      )}
+      <CustomSwitch
         id={id}
         size="$3"
         className={className}
@@ -47,17 +51,8 @@ export const TamaguiSwitch = React.memo((props: CellProps & WithClassname) => {
         checked={checked}
         onCheckedChange={(isChecked) => handleChange(path, isChecked)}
       >
-        <Switch.Thumb animation="quick" />
-      </Switch>
+        {checked && <Check size="$2" color="white" />}
+      </CustomSwitch>
     </XStack>
-    // <Switch
-    //   checked={checked}
-    //   // onChange={(_ev, isChecked) => handleChange(path, isChecked)}
-    //   on
-    //   className={className}
-    //   id={id}
-    //   disabled={!enabled}
-    //   // inputProps={inputProps}
-    // />
   )
 })

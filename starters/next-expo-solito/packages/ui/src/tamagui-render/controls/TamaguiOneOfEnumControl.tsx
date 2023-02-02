@@ -44,7 +44,6 @@ export const TamaguiOneOfEnumControl = (
   const { config, uischema, errors } = props
   const appliedUiSchemaOptions = merge({}, config, uischema.options)
   const isValid = errors.length === 0
-  console.log("oneofEnum")
   return appliedUiSchemaOptions.autocomplete === false ? (
     <TamaguiInputControl {...props} input={TamaguiSelect} />
   ) : (

@@ -1,11 +1,12 @@
-import { Anchor, Button, H1, Input, Paragraph, Separator, Sheet, Stack, VisuallyHidden, XStack, YStack } from '@my/ui'
-import Test from '@my/ui/dist/jsx/Test'
+import { Anchor, Button, H1, Input, Paragraph, ScrollView, Separator, Sheet, Stack, VisuallyHidden, XStack, YStack } from '@my/ui'
+// import Test from '@my/ui/dist/jsx/Test'
 import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
 import React, { useState } from 'react'
 import { useLink } from 'solito/link'
 import schema from '../../json-forms/schema2';
 import uischema from '../../json-forms/uischema2';
 import initialData from '../../json-forms/initialData';
+import Test from 'app/components/Test';
 
 
 export function HomeScreen() {
@@ -14,8 +15,8 @@ export function HomeScreen() {
   })
 
   return (
-    <YStack f={1} jc="center" ai="center" p="$4" space>
-      <Stack space="$4" maw={600} flexDirection='column'>
+    <ScrollView w='100%'>
+      <Stack space="$4" maw={600} flexDirection='column' m='auto'>
         <H1 ta="center">Welcome to Tamagui.</H1>
         <Paragraph ta="center">
           Here's a basic starter to show navigating from one screen to another. This screen uses the
@@ -43,12 +44,12 @@ export function HomeScreen() {
 
       </Stack>
 
-      <XStack>
+      <XStack m='auto'>
         <Button {...linkProps}>Link to user</Button>
       </XStack>
 
       <SheetDemo />
-    </YStack>
+    </ScrollView>
   )
 }
 

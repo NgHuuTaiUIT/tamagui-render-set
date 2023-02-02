@@ -108,6 +108,13 @@ export const TamaguiDateControl = (props: ControlProps) => {
   const value = getData(data, saveFormat)
   const valueInInputFormat = value ? value.format(format) : ''
 
+  let deviceType
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    deviceType = 'Mobile'
+  } else {
+    deviceType = 'Desktop'
+  }
+
   return (
     //   <MobileView>
     //   <DateTimePicker
@@ -138,7 +145,9 @@ export const TamaguiDateControl = (props: ControlProps) => {
           disabled={!enabled}
         />
       </MobileView> */}
-      <BrowserView>
+      {deviceType === 'Mobile' ? (
+        <></>
+      ) : (
         <Hidden xsUp={!visible}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
@@ -170,11 +179,11 @@ export const TamaguiDateControl = (props: ControlProps) => {
                   inputProps={{
                     ...params.inputProps,
                     type: 'text',
-                    color: 'white'
+                    color: 'white',
                   }}
                   style={{
-                    color: "white",
-                    borderColor: "white"
+                    color: 'white',
+                    borderColor: 'white',
                   }}
                   InputLabelProps={data ? { shrink: true } : undefined}
                   onFocus={onFocus}
@@ -189,7 +198,7 @@ export const TamaguiDateControl = (props: ControlProps) => {
             <FormHelperText error={!isValid}>{secondFormHelperText}</FormHelperText>
           </LocalizationProvider>
         </Hidden>
-      </BrowserView>
+      )}
     </YStack>
   )
 }

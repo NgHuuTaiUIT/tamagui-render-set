@@ -12,6 +12,9 @@ export default  {
       "default": 2,
       "description": "Slider Example"
     },
+    "done": {
+      "type": "boolean"
+    },
     "trimText": {
       "type": "string",
       "description": "Trim indicates whether the control shall grab the full width available"

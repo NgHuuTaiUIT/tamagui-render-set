@@ -17,6 +17,11 @@ export default {
     },
     {
       "type": "Control",
+      "label": false,
+      "scope": "#/properties/done"
+    },
+    {
+      "type": "Control",
       "scope": "#/properties/trimText",
       "options": {
         "trim": true

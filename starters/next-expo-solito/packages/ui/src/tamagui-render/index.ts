@@ -51,8 +51,8 @@ import { JsonFormsCellRendererRegistryEntry, JsonFormsRendererRegistryEntry } fr
 import {
   // TamaguiAnyOfStringOrEnumControl,
   // tamaguiAnyOfStringOrEnumControlTester,
-  // TamaguiBooleanControl,
-  // tamaguiBooleanControlTester,
+  TamaguiBooleanControl,
+  tamaguiBooleanControlTester,
   TamaguiBooleanSwitchControl,
   tamaguiBooleanSwitchControlTester,
   TamaguiDateControl,
@@ -73,8 +73,8 @@ import {
   tamaguiOneOfEnumControlTester,
   // TamaguiRadioGroupControl,
   // tamaguiRadioGroupControlTester,
-  // TamaguiSliderControl,
-  // tamaguiSliderControlTester,
+  TamaguiSliderControl,
+  tamaguiSliderControlTester,
   TamaguiTextControl,
   tamaguiTextControlTester,
   // TamaguiOneOfRadioGroupControl,
@@ -93,8 +93,8 @@ import {
   tamaguiVerticalLayoutTester,
 } from './layouts'
 import {
-  // TamaguiBooleanCell,
-  // tamaguiBooleanCellTester,
+  TamaguiBooleanCell,
+  tamaguiBooleanCellTester,
   TamaguiBooleanSwitchCell,
   tamaguiBooleanSwitchCellTester,
   TamaguiDateCell,
@@ -128,11 +128,13 @@ export * from './util'
 export const tamaguiRenderers: JsonFormsRendererRegistryEntry[] = [
   { tester: tamaguiTextControlTester, renderer: TamaguiTextControl },
   { tester: tamaguiBooleanSwitchControlTester, renderer: TamaguiBooleanSwitchControl },
+  { tester: tamaguiBooleanControlTester, renderer: TamaguiBooleanControl },
   { tester: tamaguiEnumControlTester, renderer: TamaguiEnumControl },
   { tester: tamaguiIntegerControlTester, renderer: TamaguiIntegerControl },
   { tester: tamaguiNumberControlTester, renderer: TamaguiNumberControl },
   { tester: tamaguiOneOfEnumControlTester, renderer: TamaguiOneOfEnumControl },
   { tester: tamaguiDateControlTester, renderer: TamaguiDateControl },
+  { tester: tamaguiSliderControlTester, renderer: TamaguiSliderControl },
 
   // layouts
   { tester: tamaguiGroupTester, renderer: TamaguiGroupLayout },
