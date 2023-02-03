@@ -67,6 +67,7 @@ export const MyWebDatePicker = ({
     style: { height: 30, padding: 5, border: '2px solid #677788', borderRadius: 5, width: 250 },
   })
 }
+import { Platform, StyleSheet } from 'react-native'
 
 export const TamaguiDateControl = (props: ControlProps) => {
   const [focused, onFocus, onBlur] = useFocus()
@@ -109,7 +110,7 @@ export const TamaguiDateControl = (props: ControlProps) => {
   const valueInInputFormat = value ? value.format(format) : ''
 
   let deviceType
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  if (Platform.OS === 'web') {
     deviceType = 'Mobile'
   } else {
     deviceType = 'Desktop'
