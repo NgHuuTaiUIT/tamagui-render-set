@@ -40,6 +40,22 @@ export default  {
       "type": "string",
       "format": "date"
     },
+    "time": {
+      "type": "string",
+      "format": "time"
+    },
+    "dateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "enum": {
+      "type": "string",
+      "enum": [
+        "One",
+        "Two",
+        "Three"
+      ]
+    }
   },
   "required": [
     "hideRequiredAsterisk",

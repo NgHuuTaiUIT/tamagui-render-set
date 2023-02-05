@@ -59,6 +59,18 @@ export default {
     {
       "type": "Control",
       "scope": "#/properties/birthDate"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/time"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/dateTime"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/enum"
     }
   ]
 }

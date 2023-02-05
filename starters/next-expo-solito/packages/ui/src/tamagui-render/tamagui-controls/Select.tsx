@@ -40,7 +40,7 @@ export const TamaguiSelect = React.memo((props: EnumCellProps & WithClassname & 
     uischema,
     path,
     handleChange,
-    options,
+    options = [],
     config,
     t
   } = props;
@@ -83,7 +83,7 @@ export const TamaguiSelect = React.memo((props: EnumCellProps & WithClassname & 
         <Select.Viewport minWidth={200}>
           <Select.Group>
             <Select.Label>Fruits</Select.Label>
-            {options.map((item, i) => {
+            {options?.map((item, i) => {
               return (
                 <Select.Item index={i} key={item.value} value={item.value.toLowerCase()}>
                   <Select.ItemText>{item.value}</Select.ItemText>

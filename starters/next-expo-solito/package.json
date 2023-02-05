@@ -35,7 +35,8 @@
     "react-day-picker": "^8.4.1",
     "react-device-detect": "^2.2.2",
     "react-native-date-picker": "^4.2.6",
-    "react-native-modal-datetime-picker": "^14.0.1"
+    "react-native-modal-datetime-picker": "^14.0.1",
+    "react-native-vector-icons": "^9.2.0"
   },
   "devDependencies": {
     "@jsonforms/core": "^3.0.0",
