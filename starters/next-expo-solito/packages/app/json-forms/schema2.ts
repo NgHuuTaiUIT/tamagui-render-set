@@ -3,7 +3,10 @@ export default  {
   "properties": {
     "multilineString": {
       "type": "string",
-      "description": "Multiline Example"
+      "description": "Multiline Example",
+      "options" : {
+        "placeholder": "Tesssssssst"
+      }
     },
     "slider": {
       "type": "number",

@@ -30,6 +30,8 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
   const { data, config, className, id, enabled, uischema, isValid, path, handleChange, schema } =
     props
   const maxLength = schema.maxLength;
+  const placeholder = schema.options?.placeholder as string || '';
+
   const appliedUiSchemaOptions = merge({}, config, uischema.options)
   let inputProps: InputProps
   if (appliedUiSchemaOptions.restrict) {
@@ -61,7 +63,6 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
       <Input
         secureTextEntry={appliedUiSchemaOptions.format === 'password'}
         value={inputText}
-        // onChange={onChange}
         onChangeText={onChange}
         className={className}
         id={id}
@@ -70,10 +71,7 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
         multiline={appliedUiSchemaOptions.multi}
         {...inputProps}
         minWidth='300px'
-        // defaultValue='cmmmmmmmmmmmmmmmmmmm'
-        placeholder='dsadsaaaaa'
-        // onPointerEnter={onPointerEnter}
-        // onPointerLeave={onPointerLeave}
+        placeholder={placeholder}
       />
       <Tooltip>
         <Tooltip.Trigger>
