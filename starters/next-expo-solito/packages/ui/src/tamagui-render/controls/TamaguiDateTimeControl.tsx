@@ -1,4 +1,4 @@
-import { ControlProps, isDescriptionHidden, isTimeControl, RankedTester, rankWith } from '@jsonforms/core';
+import { ControlProps, isDateTimeControl, isDescriptionHidden, RankedTester, rankWith } from '@jsonforms/core';
 import { withJsonFormsControlProps } from '@jsonforms/react';
 import { FormHelperText, Hidden } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
@@ -10,7 +10,7 @@ import { isWeb, YStack } from 'tamagui';
 
 import { createOnChangeHandler, getData, ResettableTextField, useFocus } from '../util';
 
-export const TamaguiTimeControl = (props: ControlProps) => {
+export const TamaguiDateTimeControl = (props: ControlProps) => {
   const [focused, onFocus, onBlur] = useFocus()
   const {
     description,
@@ -35,10 +35,10 @@ export const TamaguiTimeControl = (props: ControlProps) => {
     appliedUiSchemaOptions.showUnfocusedDescription
   )
 
-  const format = appliedUiSchemaOptions.timeFormat ?? 'HH:mm';
-  const saveFormat = appliedUiSchemaOptions.timeSaveFormat ?? 'HH:mm:ss';
+  const format = appliedUiSchemaOptions.dateTimeFormat ?? 'YYYY-MM-DD HH:mm';
+  const saveFormat = appliedUiSchemaOptions.dateTimeSaveFormat ?? undefined;
 
-  const views = appliedUiSchemaOptions.views ?? ['hours', 'minutes'];
+  const views = appliedUiSchemaOptions.views ?? ['year', 'day']
 
   const firstFormHelperText = showDescription ? description : !isValid ? errors : null
   const secondFormHelperText = showDescription && !isValid ? errors : null
@@ -132,9 +132,9 @@ export const TamaguiTimeControl = (props: ControlProps) => {
   )
 }
 
-export const tamaguiTimeControlTester: RankedTester = rankWith(
-  4,
-  isTimeControl
+export const tamaguiDateTimeControlTester: RankedTester = rankWith(
+  2,
+  isDateTimeControl
 );
 
-export default withJsonFormsControlProps(TamaguiTimeControl);
+export default withJsonFormsControlProps(TamaguiDateTimeControl);
