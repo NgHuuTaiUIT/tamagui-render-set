@@ -23,7 +23,7 @@ import { JsonFormsTheme, useDebouncedChange } from '../util'
 //   inputComponent?: InputProps['inputComponent'];
 // }
 
-const eventToValue = (ev: any) => (ev.target.value === '' ? undefined : ev.target.value)
+const eventToValue = (text: any) => (text === '' ? undefined : text)
 
 export const InputText = React.memo((props: CellProps & WithClassname & InputProps) => {
   //   const [showAdornment, setShowAdornment] = useState(false)
@@ -61,7 +61,8 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
       <Input
         secureTextEntry={appliedUiSchemaOptions.format === 'password'}
         value={inputText}
-        onChange={onChange}
+        // onChange={onChange}
+        onChangeText={onChange}
         className={className}
         id={id}
         disabled={!enabled}
@@ -69,6 +70,8 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
         multiline={appliedUiSchemaOptions.multi}
         {...inputProps}
         minWidth='300px'
+        // defaultValue='cmmmmmmmmmmmmmmmmmmm'
+        placeholder='dsadsaaaaa'
         // onPointerEnter={onPointerEnter}
         // onPointerLeave={onPointerLeave}
       />

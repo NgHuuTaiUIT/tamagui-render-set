@@ -108,10 +108,10 @@ export const TamaguiSliderControl = (props: ControlProps) => {
           <Slider2.Track>
             <Slider2.TrackActive />
           </Slider2.Track>
-          <Slider2.Thumb bordered circular elevate index={0} size="$2"/>
+          <Slider2.Thumb bordered circular elevate index={0} size={2}/>
         </Slider2>
         <VisuallyHidden visible={!isValid}>
-          <Paragraph size="$2" fow="500" >
+          <Paragraph size={1} fow="500" >
           {!isValid ? errors : showDescription ? description : null}
           </Paragraph>
         </VisuallyHidden>

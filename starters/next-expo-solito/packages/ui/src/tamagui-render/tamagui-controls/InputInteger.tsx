@@ -30,7 +30,7 @@ import { useDebouncedChange } from '../util';
 
 const toNumber = (value: string) =>
       value === '' ? undefined : parseInt(value, 10);
-const eventToValue = (ev:any) => toNumber(ev.target.value);
+const eventToValue = (text:any) => toNumber(text);
 
 export const InputInteger = React.memo( 
   (props: CellProps & WithClassname) => {

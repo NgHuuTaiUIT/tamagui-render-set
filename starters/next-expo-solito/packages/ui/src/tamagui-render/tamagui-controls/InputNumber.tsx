@@ -30,7 +30,7 @@ import {useDebouncedChange} from '../util';
 
 const toNumber = (value: string) =>
     value === '' ? undefined : parseFloat(value);
-const eventToValue = (ev:any) => toNumber(ev.target.value);
+const eventToValue = (text:any) => toNumber(text);
 export const InputNumber = React.memo((props: CellProps & WithClassname) => {
   const {
     data,

@@ -39,7 +39,6 @@ export const TamaguiInputControl = (props: ControlProps & WithInput) => {
   const { id, description, errors, label, uischema, visible, required, config, input } = props
   const isValid = errors.length === 0
   const appliedUiSchemaOptions = merge({}, config, uischema.options)
-
   const showDescription = !isDescriptionHidden(
     visible,
     description,
@@ -62,7 +61,7 @@ export const TamaguiInputControl = (props: ControlProps & WithInput) => {
       </Label>
       <InnerComponent {...props} id={id + '-input'} isValid={isValid} visible={visible} />
       <VisuallyHidden visible={!isValid && !showDescription}>
-        <Paragraph size="$2" fow="500" >
+        <Paragraph size="$2" fow="500" color="$red10Light">
           {firstFormHelperText}
         </Paragraph>
       </VisuallyHidden>

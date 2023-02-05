@@ -26,7 +26,7 @@ import debounce from 'lodash/debounce';
 import { useState, useCallback, useEffect } from 'react'
 
 
-const eventToValue = (ev: any) => ev.target.value;
+const eventToValue = (text: any) => text;
 export const useDebouncedChange = (handleChange: (path: string, value: any) => void, defaultValue: any, data: any, path: string, eventToValueFunction: (ev: any) => any = eventToValue, timeout = 300): [any, any, () => void] => {
   const [input, setInput] = useState(data ?? defaultValue);
   useEffect(() => {
@@ -34,8 +34,8 @@ export const useDebouncedChange = (handleChange: (path: string, value: any) => v
   }, [data]);
   const debouncedUpdate = useCallback(debounce((newValue: string) => handleChange(path, newValue), timeout), [handleChange, path, timeout]);
   
-  const onChange: any = useCallback((ev: any) => {
-    const newValue = eventToValueFunction(ev);
+  const onChange: any = useCallback((text: any) => {
+    const newValue = eventToValueFunction(text);
     setInput(newValue ?? defaultValue);
     debouncedUpdate(newValue);
   }, [debouncedUpdate, eventToValueFunction]);
