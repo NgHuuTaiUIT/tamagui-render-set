@@ -54,8 +54,6 @@ export function HomeScreen() {
 }
 
 function SheetDemo() {
-  const [open, setOpen] = useState(false)
-  const [position, setPosition] = useState(0)
   return (
     <Test schema={schema} uischema={uischema} initialData={initialData}/>
     // <>

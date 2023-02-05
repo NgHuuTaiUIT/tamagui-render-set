@@ -14,13 +14,13 @@ const Container = styled(YStack, {
 
 const Title = styled(H1, {
   textAlign: 'center',
-  padding: '0.25em',
+  // padding: '0.25em',
 })
 
 const Content = styled(Paragraph, {
   display: 'flex',
   justifyContent: 'center',
-  borderRadius: '0.25em',
+  // borderRadius: '0.25em',
   backgroundColor: '#cecece',
   marginBottom: '1rem',
 })
@@ -54,7 +54,6 @@ const Test = ({ schema, uischema, initialData }) => {
   const clearData = () => {
     setData({})
   }
-  console.log(tamaguiRenderers)
 
   return (
     // <div className='App'>

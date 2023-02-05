@@ -1,73 +1,35 @@
-/*
-  The MIT License
-  
-  Copyright (c) 2017-2019 EclipseSource Munich
-  https://github.com/eclipsesource/jsonforms
-  
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-  
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-  
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-  THE SOFTWARE.
-*/
-import merge from 'lodash/merge'
-import React, { createElement, useMemo, useState } from 'react'
-import {
-  ControlProps,
-  isDateControl,
-  isDescriptionHidden,
-  RankedTester,
-  rankWith,
-} from '@jsonforms/core'
-import { withJsonFormsControlProps } from '@jsonforms/react'
-import { YStack, Text } from 'tamagui'
-// import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-// import { format } from 'date-fns'
-// import { DayPicker } from 'react-day-picker'
-// import DatePicker from 'react-native-date-picker'
-// import DateTimePicker from '@react-native-community/datetimepicker';
-import {
-  ResettableTextField,
-  createOnChangeHandler,
-  getData,
-  // ResettableTextField,
-  useFocus,
-} from '../util'
-import { BrowserView, MobileView } from 'react-device-detect'
-import { MobileDatePicker, DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
-import { FormHelperText, Hidden } from '@mui/material'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { ControlProps, isDateControl, isDescriptionHidden, RankedTester, rankWith } from '@jsonforms/core';
+import { withJsonFormsControlProps } from '@jsonforms/react';
+import { FormHelperText, Hidden } from '@mui/material';
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { color } from '@tamagui/theme-base';
+import merge from 'lodash/merge';
+import React, { createElement, useEffect, useMemo, useState } from 'react';
+import { isWeb, YStack } from 'tamagui';
 
-export const MyWebDatePicker = ({
-  date,
-  onChange,
-}: {
-  date: Date
-  onChange: (time: Date, textInputValue: string) => void
-}) => {
-  return createElement('input', {
-    type: 'date',
-    value: date?.toISOString().split('T')[0],
-    onChange: (event: any) => {
-      onChange(new Date(event.target.value), 'Invalid Date')
-    },
-    style: { height: 30, padding: 5, border: '2px solid #677788', borderRadius: 5, width: 250 },
-  })
-}
-import { Platform, StyleSheet } from 'react-native'
+import { createOnChangeHandler, getData, ResettableTextField, useFocus } from '../util';
+
+// import TamaguiDateMobile from './TamaguiDateMobileControl';
+
+// export const MyWebDatePicker = ({
+//   date,
+//   onChange,
+// }: {
+//   date: Date
+//   onChange: (time: Date, textInputValue: string) => void
+// }) => {
+//   return createElement('input', {
+//     type: 'date',
+//     value: date?.toISOString().split('T')[0],
+//     onChange: (event: any) => {
+//       onChange(new Date(event.target.value), 'Invalid Date')
+//     },
+//     style: { height: 30, padding: 5, border: '2px solid #677788', borderRadius: 5, width: 250 },
+//   })
+// }
+
+
 
 export const TamaguiDateControl = (props: ControlProps) => {
   const [focused, onFocus, onBlur] = useFocus()
@@ -109,46 +71,24 @@ export const TamaguiDateControl = (props: ControlProps) => {
   const value = getData(data, saveFormat)
   const valueInInputFormat = value ? value.format(format) : ''
 
-  let deviceType
-  if (Platform.OS === 'web') {
-    deviceType = 'Mobile'
-  } else {
-    deviceType = 'Desktop'
+  const intputStyle = {
+    color: 'white',
+    background: '#1111',
+    // fontFamily: size.
   }
 
-  return (
-    //   <MobileView>
-    //   <DateTimePicker
-    //     // date={value?.toDate()!}
-    //     // mode="date"
-    //     // onDateChange={(date) => onChange(date, 'Invalid Date')}
-    //     // open={enabled}
-    //     value={value?.toDate()!}
-    //     mode='datetime'
-    //     onChange={(ev, date) => onChange(date!, 'Invalid Date')}
-    //     disabled={!enabled}
-    //   />
-    // </MobileView>
-    //   <MyWebDatePicker
-    //     date={value?.toDate()!}
-    //     onChange={onChange}
-    //   />
-    <YStack>
-      {/* <MobileView>
-        <DateTimePicker
-          // date={value?.toDate()!}
-          // mode="date"
-          // onDateChange={(date) => onChange(date, 'Invalid Date')}
-          // open={enabled}
-          value={value?.toDate()!}
-          mode="datetime"
-          onChange={(ev, date) => onChange(date!, 'Invalid Date')}
-          disabled={!enabled}
-        />
-      </MobileView> */}
-      {deviceType === 'Mobile' ? (
-        <></>
-      ) : (
+  const labeStyle = {
+    color: 'white',
+    fontSize: '15px',
+  }
+
+  const svgStyle = {
+    color: 'white',
+  }
+
+  const renderDatePicker = () => {
+    if (isWeb) {
+      return (
         <Hidden xsUp={!visible}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
@@ -179,12 +119,12 @@ export const TamaguiDateControl = (props: ControlProps) => {
                   fullWidth={!appliedUiSchemaOptions.trim}
                   inputProps={{
                     ...params.inputProps,
-                    type: 'text',
-                    color: 'white',
                   }}
-                  style={{
-                    color: 'white',
-                    borderColor: 'white',
+                  sx={{
+                    color: 'aqua',
+                    input: intputStyle,
+                    svg: svgStyle,
+                    label: labeStyle,
                   }}
                   InputLabelProps={data ? { shrink: true } : undefined}
                   onFocus={onFocus}
@@ -199,7 +139,16 @@ export const TamaguiDateControl = (props: ControlProps) => {
             <FormHelperText error={!isValid}>{secondFormHelperText}</FormHelperText>
           </LocalizationProvider>
         </Hidden>
-      )}
+      )
+    }else {
+      //TODO: render TamaguiDateMobile
+      // return <TamaguiDateMobile {...props}/>
+    }
+  }
+
+  return (
+    <YStack>
+      {renderDatePicker()}
     </YStack>
   )
 }

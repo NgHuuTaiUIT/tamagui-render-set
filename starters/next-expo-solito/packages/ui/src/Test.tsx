@@ -1,6 +1,6 @@
 import { Fragment, useState, useMemo } from 'react';
 import { JsonForms } from '@jsonforms/react';
-import { H1, Heading, Label, Stack, YStack, Button, styled, Paragraph } from 'tamagui';
+import { H1, Heading, Label, Stack, YStack, Button, styled, Paragraph, Text } from 'tamagui';
 // import schema from './json-forms/schema';
 // import uischema from './json-forms/uischema';
 import {
@@ -10,23 +10,22 @@ import {
 
 import MyGroupRenderer, { myGroupTester } from './MyGroup';
 
-
 const Container = styled(YStack, {
-    padding: '1em',
+    // padding: '1em',
     width: '100%'
 })
 
 const Title = styled(H1, {
     textAlign: 'center',
-    padding: '0.25em'
+    // padding: '0.25em'
 })
 
 const  Content = styled(Paragraph, {
     display: 'flex',
     justifyContent: 'center',
-    borderRadius: '0.25em',
+    // borderRadius: '0.25em',
     backgroundColor: '#cecece',
-    marginBottom: '1rem'
+    // marginBottom: '1rem'
 })
 
 const ResetButton = styled(Button,{
@@ -36,7 +35,8 @@ const ResetButton = styled(Button,{
 
 const Demoform = styled(YStack ,{
         margin: 'auto',
-        padding: '1rem'
+        // padding: '1rem',
+        width: '100%'
 })
 
 
@@ -58,14 +58,14 @@ const Test = ({schema, uischema, initialData}) => {
   console.log(tamaguiRenderers);
 
   return (
+      // <div className='App'>
+      //   <header className='App-header'>
+      //     {/* <img src={logo} className='App-logo' alt='logo' /> */}
+      //     <h1 className='App-title'>Welcome to JSON Forms with React</h1>
+      //     <p className='App-intro'>More Forms. Less Code.</p>
+      //   </header>
+      // </div>
     <Fragment>
-      <div className='App'>
-        <header className='App-header'>
-          {/* <img src={logo} className='App-logo' alt='logo' /> */}
-          <h1 className='App-title'>Welcome to JSON Forms with React</h1>
-          <p className='App-intro'>More Forms. Less Code.</p>
-        </header>
-      </div>
 
       <Container
         justifyContent={'center'}
@@ -73,21 +73,21 @@ const Test = ({schema, uischema, initialData}) => {
         >
         <YStack>
           <Title>
-            Bound data
+            <Text>Bound data</Text>
           </Title>
           <Content>
-            {stringifiedData}
+            <Text>{stringifiedData}</Text>
           </Content>
           <Button
             onPress={clearData}
             color='primary'
             >
-            Clear data
+            <Text>Clear data</Text>
           </Button>
         </YStack>
         <YStack>
           <Title>
-            Rendered form
+            <Text>Rendered form</Text>
           </Title>
           <Demoform>
             <JsonForms
@@ -97,6 +97,7 @@ const Test = ({schema, uischema, initialData}) => {
               renderers={renderers}
               cells={tamaguiCells}
               onChange={({ errors, data }) => setData(data)}
+
             />
           </Demoform>
         </YStack>

@@ -32,21 +32,10 @@ import {
 } from '@jsonforms/core';
 import { withJsonFormsCellProps } from '@jsonforms/react';
 import merge from 'lodash/merge';
-import { MyWebDatePicker } from '../controls/TamaguiDateControl';
+import { TamaguiDateControl } from '../controls';
+// import { MyWebDatePicker } from '../controls/TamaguiDateControl';
 
 export const TamaguiDateCell = (props: CellProps & WithClassname) => {
-  const {
-    data,
-    className,
-    id,
-    enabled,
-    uischema,
-    path,
-    handleChange,
-    config
-  } = props;
-
-  const appliedUiSchemaOptions = merge({}, config, uischema.options);
 
   return (
     // <Input
@@ -59,10 +48,12 @@ export const TamaguiDateCell = (props: CellProps & WithClassname) => {
     //   autoFocus={appliedUiSchemaOptions.focus}
     //   fullWidth={true}
     // />
-    <MyWebDatePicker
-      date={data || ''}
-      onChange={(time) => handleChange(path, time)}
-    />
+    // <MyWebDatePicker
+    //   date={data || ''}
+    //   onChange={(time) => handleChange(path, time)}
+    // />
+    <TamaguiDateControl {...props} />
+
   );
 };
 export const tamaguiDateCellTester: RankedTester = rankWith(2, isDateControl);
