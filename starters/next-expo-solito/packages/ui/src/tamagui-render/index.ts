@@ -71,8 +71,8 @@ import {
   tamaguiNumberControlTester,
   TamaguiOneOfEnumControl,
   tamaguiOneOfEnumControlTester,
-  // TamaguiRadioGroupControl,
-  // tamaguiRadioGroupControlTester,
+  TamaguiRadioGroupControl,
+  tamaguiRadioGroupControlTester,
   TamaguiSliderControl,
   tamaguiSliderControlTester,
   TamaguiTextControl,
@@ -137,7 +137,10 @@ export const tamaguiRenderers: JsonFormsRendererRegistryEntry[] = [
   { tester: tamaguiDateControlTester, renderer: TamaguiDateControl },
   { tester: tamaguiTimeControlTester, renderer: TamaguiTimeControl }, 
   { tester: tamaguiSliderControlTester, renderer: TamaguiSliderControl },
-
+  {
+    tester: tamaguiRadioGroupControlTester,
+    renderer: TamaguiRadioGroupControl
+  },
   // layouts
   { tester: tamaguiGroupTester, renderer: TamaguiGroupLayout },
   {

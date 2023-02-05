@@ -26,10 +26,6 @@ import TamaguiBooleanControl, {
   tamaguiBooleanControlTester,
   TamaguiBooleanControl as TamaguiBooleanControlUnwrapped
 } from './TamaguiBooleanControl';
-// import TamaguiBooleanToggleControl, {
-//   tamaguiBooleanToggleControlTester,
-//   TamaguiBooleanToggleControl as TamaguiBooleanToggleControlUnwrapped
-// } from './TamaguiBooleanToggleControl';
 import TamaguiEnumControl, {
   tamaguiEnumControlTester,
   TamaguiEnumControl as TamaguiEnumControlUnwrapped
@@ -54,18 +50,10 @@ import TamaguiSliderControl, {
   tamaguiSliderControlTester,
   TamaguiSliderControl as TamaguiSliderControlUnwrapped
 } from './TamaguiSliderControl';
-// import TamaguiRadioGroupControl, {
-//   tamaguiRadioGroupControlTester,
-//   TamaguiRadioGroupControl as TamaguiRadioGroupControlUnwrapped
-// } from './TamaguiRadioGroupControl';
-// import TamaguiIntegerControl, {
-//   tamaguiIntegerControlTester,
-//   TamaguiIntegerControl as TamaguiIntegerControlUnwrapped
-// } from './TamaguiIntegerControl';
-// import TamaguiNumberControl, {
-//   tamaguiNumberControlTester,
-//   TamaguiNumberControl as TamaguiNumberControlUnwrapped
-
+import TamaguiRadioGroupControl, {
+  tamaguiRadioGroupControlTester,
+  TamaguiRadioGroupControl as TamaguiRadioGroupControlUnwrapped
+} from './TamaguiRadioGroupControl';
 
 // } from './TamaguiNumberControl';
 import TamaguiTextControl, {
@@ -101,14 +89,13 @@ import TamaguiOneOfEnumControl, {
 
 export const Unwrapped = {
   TamaguiBooleanControl: TamaguiBooleanControlUnwrapped,
-  // TamaguiBooleanToggleControl: TamaguiBooleanToggleControlUnwrapped,
   TamaguiEnumControl: TamaguiEnumControlUnwrapped,
   // TamaguiNativeControl: TamaguiNativeControlUnwrapped,
   TamaguiDateControl: TamaguiDateControlUnwrapped,
   TamaguiDateTimeControl: TamaguiDateTimeControlUnwrapped,
   TamaguiTimeControl: TamaguiTimeControlUnwrapped,
   TamaguiSliderControl: TamaguiSliderControlUnwrapped,
-  // TamaguiRadioGroupControl: TamaguiRadioGroupControlUnwrapped,
+  TamaguiRadioGroupControl: TamaguiRadioGroupControlUnwrapped,
   TamaguiIntegerControl: TamaguiIntegerControlUnwrapped,
   TamaguiNumberControl: TamaguiNumberControlUnwrapped,
   TamaguiTextControl: TamaguiTextControlUnwrapped,
@@ -121,8 +108,6 @@ export const Unwrapped = {
 export {
   TamaguiBooleanControl,
   tamaguiBooleanControlTester,
-  // TamaguiBooleanToggleControl,
-  // tamaguiBooleanToggleControlTester,
   TamaguiEnumControl,
   tamaguiEnumControlTester,
   // TamaguiNativeControl,
@@ -135,8 +120,8 @@ export {
   tamaguiTimeControlTester,
   TamaguiSliderControl,
   tamaguiSliderControlTester,
-  // TamaguiRadioGroupControl,
-  // tamaguiRadioGroupControlTester,
+  TamaguiRadioGroupControl,
+  tamaguiRadioGroupControlTester,
   TamaguiBooleanSwitchControl,
   tamaguiBooleanSwitchControlTester,
   TamaguiIntegerControl,

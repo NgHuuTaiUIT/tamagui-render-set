@@ -14,6 +14,9 @@ export const TamaguiCheckBox = React.memo((props: CellProps & WithClassname) => 
     maw: 27,
     mah: 20,
     borderRadius: 0,
+    borderColor: "black",
+    borderStyle: "solid",
+    borderWidth: 1,
     backgroundColor: !checked ? "white" : "$blue11Dark",
   })
   const IconCheck = styled(Check, {
@@ -23,11 +26,6 @@ export const TamaguiCheckBox = React.memo((props: CellProps & WithClassname) => 
   })
   return (
     <XStack miw={200} ai="center" space="$4" my="$4">
-      {uischema.label && (
-        <Label pr="$0" miw={90} jc="flex-end" size="$3" htmlFor={id}>
-          {uischema.label}
-        </Label>
-      )}
       <CustomSwitch
         id={id}
         size="$3"
@@ -36,8 +34,13 @@ export const TamaguiCheckBox = React.memo((props: CellProps & WithClassname) => 
         checked={checked}
         onCheckedChange={(isChecked) => handleChange(path, isChecked)}
       >
-        {checked && <IconCheck />}
+        <IconCheck />
       </CustomSwitch>
+      {uischema.label && (
+        <Label pr="$0" miw={90} jc="flex-end" size="$3" htmlFor={id}>
+          {uischema.label}
+        </Label>
+      )}
     </XStack>
   )
 })
