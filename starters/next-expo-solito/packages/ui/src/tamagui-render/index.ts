@@ -57,10 +57,10 @@ import {
   tamaguiBooleanSwitchControlTester,
   TamaguiDateControl,
   tamaguiDateControlTester,
-  // TamaguiDateTimeControl,
-  // tamaguiDateTimeControlTester,
-  // TamaguiTimeControl,
-  // tamaguiTimeControlTester,
+  TamaguiDateTimeControl,
+  tamaguiDateTimeControlTester,
+  TamaguiTimeControl,
+  tamaguiTimeControlTester,
   TamaguiEnumControl,
   tamaguiEnumControlTester,
   TamaguiIntegerControl,
@@ -111,8 +111,8 @@ import {
   tamaguiOneOfEnumCellTester,
   TamaguiTextCell,
   tamaguiTextCellTester,
-  // TamaguiTimeCell,
-  // tamaguiTimeCellTester
+  TamaguiTimeCell,
+  tamaguiTimeCellTester
 } from './cells'
 // import TamaguiCategorizationStepperLayout, {
 //   tamaguiCategorizationStepperTester
@@ -133,7 +133,9 @@ export const tamaguiRenderers: JsonFormsRendererRegistryEntry[] = [
   { tester: tamaguiIntegerControlTester, renderer: TamaguiIntegerControl },
   { tester: tamaguiNumberControlTester, renderer: TamaguiNumberControl },
   { tester: tamaguiOneOfEnumControlTester, renderer: TamaguiOneOfEnumControl },
+  { tester: tamaguiDateTimeControlTester, renderer: TamaguiDateTimeControl },
   { tester: tamaguiDateControlTester, renderer: TamaguiDateControl },
+  { tester: tamaguiTimeControlTester, renderer: TamaguiTimeControl }, 
   { tester: tamaguiSliderControlTester, renderer: TamaguiSliderControl },
 
   // layouts
@@ -146,6 +148,7 @@ export const tamaguiRenderers: JsonFormsRendererRegistryEntry[] = [
 ]
 
 export const tamaguiCells: JsonFormsCellRendererRegistryEntry[] = [
+  { tester: tamaguiBooleanCellTester, cell: TamaguiBooleanCell },
   { tester: tamaguiTextCellTester, cell: TamaguiTextCell },
   { tester: tamaguiBooleanSwitchCellTester, cell: TamaguiBooleanSwitchCell },
   { tester: tamaguiEnumCellTester, cell: TamaguiEnumCell },
@@ -153,4 +156,6 @@ export const tamaguiCells: JsonFormsCellRendererRegistryEntry[] = [
   { tester: tamaguiNumberCellTester, cell: TamaguiNumberCell },
   { tester: tamaguiOneOfEnumCellTester, cell: TamaguiOneOfEnumCell },
   { tester: tamaguiDateCellTester, cell: TamaguiDateCell },
+  { tester: tamaguiTimeCellTester, cell: TamaguiTimeCell }
+
 ]

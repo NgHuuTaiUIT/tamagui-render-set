@@ -1,14 +1,20 @@
-import { ControlProps, isDateTimeControl, isDescriptionHidden, RankedTester, rankWith } from '@jsonforms/core';
-import { withJsonFormsControlProps } from '@jsonforms/react';
-import { FormHelperText, Hidden } from '@mui/material';
-import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { color } from '@tamagui/theme-base';
-import merge from 'lodash/merge';
-import React, { createElement, useEffect, useMemo, useState } from 'react';
-import { isWeb, YStack } from 'tamagui';
+import {
+  ControlProps,
+  isDateTimeControl,
+  isDescriptionHidden,
+  RankedTester,
+  rankWith,
+} from '@jsonforms/core'
+import { withJsonFormsControlProps } from '@jsonforms/react'
+import { FormHelperText, Hidden } from '@mui/material'
+import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { color } from '@tamagui/theme-base'
+import merge from 'lodash/merge'
+import React, { createElement, useEffect, useMemo, useState } from 'react'
+import { isWeb, YStack } from 'tamagui'
 
-import { createOnChangeHandler, getData, ResettableTextField, useFocus } from '../util';
+import { createOnChangeHandler, getData, ResettableTextField, useFocus } from '../util'
 
 export const TamaguiDateTimeControl = (props: ControlProps) => {
   const [focused, onFocus, onBlur] = useFocus()
@@ -35,10 +41,10 @@ export const TamaguiDateTimeControl = (props: ControlProps) => {
     appliedUiSchemaOptions.showUnfocusedDescription
   )
 
-  const format = appliedUiSchemaOptions.dateTimeFormat ?? 'YYYY-MM-DD HH:mm';
-  const saveFormat = appliedUiSchemaOptions.dateTimeSaveFormat ?? undefined;
+  const format = appliedUiSchemaOptions.dateTimeFormat ?? 'YYYY-MM-DD HH:mm'
+  const saveFormat = appliedUiSchemaOptions.dateTimeSaveFormat ?? undefined
 
-  const views = appliedUiSchemaOptions.views ?? ['year', 'day']
+  const views = appliedUiSchemaOptions.views ?? ['year', 'day', 'hours', 'minutes'];
 
   const firstFormHelperText = showDescription ? description : !isValid ? errors : null
   const secondFormHelperText = showDescription && !isValid ? errors : null
@@ -70,12 +76,13 @@ export const TamaguiDateTimeControl = (props: ControlProps) => {
       return (
         <Hidden xsUp={!visible}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
+            <DateTimePicker
               label={label}
               value={value}
               onChange={onChange}
               inputFormat={format}
               disableMaskedInput
+              ampm={!!appliedUiSchemaOptions.ampm}
               views={views}
               disabled={!enabled}
               componentsProps={{
@@ -98,6 +105,7 @@ export const TamaguiDateTimeControl = (props: ControlProps) => {
                   fullWidth={!appliedUiSchemaOptions.trim}
                   inputProps={{
                     ...params.inputProps,
+                    type: 'text',
                   }}
                   sx={{
                     color: 'aqua',
@@ -119,22 +127,15 @@ export const TamaguiDateTimeControl = (props: ControlProps) => {
           </LocalizationProvider>
         </Hidden>
       )
-    }else {
+    } else {
       //TODO: render TamaguiDateMobile
       // return <TamaguiDateMobile {...props}/>
     }
   }
 
-  return (
-    <YStack>
-      {renderDatePicker()}
-    </YStack>
-  )
+  return <YStack>{renderDatePicker()}</YStack>
 }
 
-export const tamaguiDateTimeControlTester: RankedTester = rankWith(
-  2,
-  isDateTimeControl
-);
+export const tamaguiDateTimeControlTester: RankedTester = rankWith(2, isDateTimeControl)
 
-export default withJsonFormsControlProps(TamaguiDateTimeControl);
+export default withJsonFormsControlProps(TamaguiDateTimeControl)

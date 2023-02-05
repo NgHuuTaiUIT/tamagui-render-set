@@ -29,6 +29,7 @@ import TamaguiBooleanSwitchCell, { tamaguiBooleanSwitchCellTester } from './Tama
 import TamaguiBooleanCell, { tamaguiBooleanCellTester } from './TamaguiBooleanCell';
 import TamaguiEnumCell, { tamaguiEnumCellTester } from './TamaguiEnumCell';
 import TamaguiDateCell, { tamaguiDateCellTester } from './TamaguiDateCell';
+import TamaguiTimeCell, { tamaguiTimeCellTester } from './TamaguiTimeCell';
 import TamaguiOneOfEnumCell, {
   tamaguiOneOfEnumCellTester
 } from './TamaguiOneOfEnumCell';
@@ -48,7 +49,9 @@ export {
   TamaguiOneOfEnumCell,
   tamaguiOneOfEnumCellTester,
   TamaguiDateCell,
-  tamaguiDateCellTester
+  tamaguiDateCellTester,
+  TamaguiTimeCell,
+  tamaguiTimeCellTester
 };
 import * as Customizable from './CustomizableCells';
 export { Customizable };
