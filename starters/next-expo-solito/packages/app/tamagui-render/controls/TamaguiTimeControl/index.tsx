@@ -49,7 +49,7 @@ export const TamaguiTimeControl = (props: ControlProps) => {
         mode="time"
         onChange={(ev, date) => onChange(dayjs(date!), 'Invalid Date')}
         // display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-        style={{ height: Platform.OS === 'ios' ? 90 : 50 }}
+        // style={{ height: Platform.OS === 'ios' ? 90 : 50 }}
         disabled={!enabled}
       />
     </YStack>

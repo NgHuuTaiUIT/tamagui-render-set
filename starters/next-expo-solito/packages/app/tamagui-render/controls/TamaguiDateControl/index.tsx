@@ -1,12 +1,19 @@
-import { ControlProps, RankedTester, isDateControl, isDescriptionHidden, rankWith } from '@jsonforms/core';
-import { withJsonFormsControlProps } from '@jsonforms/react';
-import DateTimePicker from '@react-native-community/datetimepicker';
-import dayjs from 'dayjs';
-import merge from 'lodash/merge';
-import { createElement, useMemo } from 'react';
-import { Platform } from 'react-native';
+import {
+  ControlProps,
+  RankedTester,
+  isDateControl,
+  isDescriptionHidden,
+  rankWith,
+} from '@jsonforms/core'
+import { withJsonFormsControlProps } from '@jsonforms/react'
+import DateTimePicker from '@react-native-community/datetimepicker'
+import dayjs from 'dayjs'
+import merge from 'lodash/merge'
+import { createElement, useMemo } from 'react'
+import { Platform } from 'react-native'
 
-import { createOnChangeHandler, getData, useFocus } from '../../util';
+import { createOnChangeHandler, getData, useFocus } from '../../util'
+import {YStack} from 'tamagui'
 
 export const TamaguiDateControl = (props: ControlProps) => {
   const [focused, onFocus, onBlur] = useFocus()
@@ -63,14 +70,16 @@ export const TamaguiDateControl = (props: ControlProps) => {
   }
 
   return (
-    <DateTimePicker
-      value={value?.toDate()!}
-      mode="date"
-      onChange={(ev, date) => onChange(dayjs(date!), 'Invalid Date')}
-      // display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-      style={{height: Platform.OS === 'ios' ? 90 : 50}}
-      disabled={!enabled}
-    />
+    <YStack>
+      <DateTimePicker
+        value={value?.toDate()!}
+        mode="date"
+        onChange={(ev, date) => onChange(dayjs(date!), 'Invalid Date')}
+        // display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+        style={{ height: Platform.OS === 'ios' ? 90 : 50 }}
+        disabled={!enabled}
+      />
+    </YStack>
   )
 }
 
