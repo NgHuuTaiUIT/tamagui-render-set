@@ -1,5 +1,5 @@
 export * from 'tamagui'
 export * from './MyComponent'
-export * from './Test'
+// export * from './MyGroup'
 
 export { config } from './tamagui.config'

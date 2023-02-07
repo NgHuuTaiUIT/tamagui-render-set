@@ -13,13 +13,10 @@ export const TamaguiCheckBox = React.memo((props: CellProps & WithClassname) => 
   const CustomSwitch = styled(Switch, {
     maw: 27,
     mah: 20,
-    borderRadius: 0,
     backgroundColor: !checked ? "white" : "$blue11Dark",
   })
   const IconCheck = styled(Check, {
-    color: !checked ? "black" : "white"
-    // stroke: "red",
-    // fill: "red",
+    color: checked ? "black" : "white",
   })
   return (
     <XStack miw={200} ai="center" space="$4" my="$4">

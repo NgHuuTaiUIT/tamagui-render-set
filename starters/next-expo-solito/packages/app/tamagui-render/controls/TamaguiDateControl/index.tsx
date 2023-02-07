@@ -1,13 +1,14 @@
-import { ControlProps, isDescriptionHidden } from '@jsonforms/core';
+import { ControlProps, RankedTester, isDateControl, isDescriptionHidden, rankWith } from '@jsonforms/core';
+import { withJsonFormsControlProps } from '@jsonforms/react';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import dayjs from 'dayjs';
 import merge from 'lodash/merge';
 import { createElement, useMemo } from 'react';
 import { Platform } from 'react-native';
 
-import { createOnChangeHandler, getData, useFocus } from '../util';
+import { createOnChangeHandler, getData, useFocus } from '../../util';
 
-const TamaguiDateMobile = (props: ControlProps) => {
+export const TamaguiDateControl = (props: ControlProps) => {
   const [focused, onFocus, onBlur] = useFocus()
   const {
     description,
@@ -73,4 +74,6 @@ const TamaguiDateMobile = (props: ControlProps) => {
   )
 }
 
-export default TamaguiDateMobile;
+export const tamaguiDateControlTester: RankedTester = rankWith(4, isDateControl)
+
+export default withJsonFormsControlProps(TamaguiDateControl)

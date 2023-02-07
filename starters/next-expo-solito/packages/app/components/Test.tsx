@@ -3,9 +3,9 @@ import { JsonForms } from '@jsonforms/react'
 import { H1, Heading, Label, Stack, YStack, Button, styled, Paragraph, Text } from 'tamagui'
 // import schema from './json-forms/schema';
 // import uischema from './json-forms/uischema';
-import { tamaguiCells, tamaguiRenderers } from '@my/ui/src/tamagui-render/index'
+import { tamaguiCells, tamaguiRenderers } from '../tamagui-render'
 
-import MyGroupRenderer, { myGroupTester } from '@my/ui/src/MyGroup'
+// import MyGroupRenderer, { myGroupTester } from '@my/ui/src/MyGroup'
 
 const Container = styled(YStack, {
   padding: '1em',
@@ -43,7 +43,7 @@ const renderers = [
   ...tamaguiRenderers,
   //register custom renderers
   //   { tester: ratingControlTester, renderer: RatingControl },
-  { tester: myGroupTester, renderer: MyGroupRenderer },
+  // { tester: myGroupTester, renderer: MyGroupRenderer },
 ]
 
 const Test = ({ schema, uischema, initialData }) => {
