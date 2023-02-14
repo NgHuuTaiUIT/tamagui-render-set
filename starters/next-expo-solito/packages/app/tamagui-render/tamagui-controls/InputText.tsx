@@ -29,8 +29,8 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
   //   const [showAdornment, setShowAdornment] = useState(false)
   const { data, config, className, id, enabled, uischema, isValid, path, handleChange, schema } =
     props
-  const maxLength = schema.maxLength;
-  const placeholder = schema.options?.placeholder as string || '';
+  const maxLength = schema.maxLength
+  const placeholder = (schema.options?.placeholder as string) || ''
 
   const appliedUiSchemaOptions = merge({}, config, uischema.options)
   let inputProps: InputProps
@@ -51,7 +51,7 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
     path,
     eventToValue
   )
-  
+
   const theme: JsonFormsTheme = useTheme()
 
   const CloseCustom = styled(X, {
@@ -59,7 +59,7 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
     borderRadius: '50%',
   })
   return (
-    <XStack ai="center" space="$2" w='100%'>
+    <XStack ai="center" jc="space-between" space="$2" w="100%">
       <Input
         secureTextEntry={appliedUiSchemaOptions.format === 'password'}
         value={inputText}
@@ -70,35 +70,37 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
         autoFocus={appliedUiSchemaOptions.focus}
         multiline={appliedUiSchemaOptions.multi}
         {...inputProps}
-        minWidth='300px'
+        flexGrow={1}
         placeholder={placeholder}
       />
-      <Tooltip>
-        <Tooltip.Trigger>
-          <Button als="center" icon={CloseCustom as any} size="$4" onPress={onClear} />
-        </Tooltip.Trigger>
-        <Tooltip.Content
-          enterStyle={{ x: 0, y: -5, o: 0, scale: 0.9 }}
-          exitStyle={{ x: 0, y: -5, o: 0, scale: 0.9 }}
-          scale={1}
-          x={0}
-          y={0}
-          o={1}
-          animation={[
-            'quick',
-            {
-              opacity: {
-                overshootClamping: true,
+      <XStack flexBasis={50}>
+        <Tooltip>
+          <Tooltip.Trigger>
+            <Button als="center" icon={CloseCustom as any} size="$4" onPress={onClear} />
+          </Tooltip.Trigger>
+          <Tooltip.Content
+            enterStyle={{ x: 0, y: -5, o: 0, scale: 0.9 }}
+            exitStyle={{ x: 0, y: -5, o: 0, scale: 0.9 }}
+            scale={1}
+            x={0}
+            y={0}
+            o={1}
+            animation={[
+              'quick',
+              {
+                opacity: {
+                  overshootClamping: true,
+                },
               },
-            },
-          ]}
-        >
-          <Tooltip.Arrow />
-          <Paragraph size="$2" lineHeight="$1">
-            Clear input field
-          </Paragraph>
-        </Tooltip.Content>
-      </Tooltip>
+            ]}
+          >
+            <Tooltip.Arrow />
+            <Paragraph size="$2" lineHeight="$1">
+              Clear input field
+            </Paragraph>
+          </Tooltip.Content>
+        </Tooltip>
+      </XStack>
     </XStack>
   )
 })

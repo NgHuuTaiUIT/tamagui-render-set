@@ -7,8 +7,8 @@ import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import merge from 'lodash/merge'
 import React, { createElement, useEffect, useMemo, useState } from 'react'
-import { YStack } from 'tamagui'
-
+import { Label } from 'tamagui'
+import { useTheme, SizeTokens } from 'tamagui';
 import { createOnChangeHandler, getData, ResettableTextField, useFocus } from '../../util'
 import { withJsonFormsControlProps } from '@jsonforms/react'
 
@@ -28,6 +28,7 @@ export const TamaguiDateControl = (props: ControlProps) => {
     data,
     config,
   } = props
+  const theme = useTheme()
   const isValid = errors.length === 0
   const appliedUiSchemaOptions = merge({}, config, uischema.options)
   const showDescription = !isDescriptionHidden(
@@ -52,10 +53,15 @@ export const TamaguiDateControl = (props: ControlProps) => {
   const value = getData(data, saveFormat)
   const valueInInputFormat = value ? value.format(format) : ''
 
-  const intputStyle = {
-    color: 'white',
-    background: '#1111',
-    // fontFamily: size.
+  const dateStyle: React.CSSProperties = {
+    border: `1px solid ${theme.borderColor.variable}`,
+    padding: `0 10px`,
+    borderRadius: 8
+  }
+
+  const intputStyle: React.CSSProperties = {
+    color: theme.color.variable,
+    padding: '10px 0'
   }
 
   const labeStyle = {
@@ -70,8 +76,9 @@ export const TamaguiDateControl = (props: ControlProps) => {
   return (
     <Hidden xsUp={!visible}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <Label>{label}</Label>
         <DatePicker
-          label={label}
+          // label={label}
           value={value}
           onChange={onChange}
           inputFormat={format}
@@ -98,6 +105,7 @@ export const TamaguiDateControl = (props: ControlProps) => {
               inputProps={{
                 ...params.inputProps,
               }}
+              style={dateStyle}
               sx={{
                 color: 'aqua',
                 input: intputStyle,

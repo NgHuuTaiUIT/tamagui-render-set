@@ -2,75 +2,52 @@ export default {
   "type": "VerticalLayout",
   "elements": [
     {
-      "type": "Control",
-      "scope": "#/properties/multilineString",
-      "options": {
-        "multi": true
-      }
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/name"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/personalData/properties/age"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/birthDate"
+        }
+      ]
     },
     {
-      "type": "Control",
-      "scope": "#/properties/slider",
-      "options": {
-        "slider": true
-      }
+      "type": "Label",
+      "text": "Additional Information"
     },
     {
-      "type": "Control",
-      "label": false,
-      "scope": "#/properties/done"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/trimText",
-      "options": {
-        "trim": true
-      }
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/restrictText",
-      "options": {
-        "restrict": true
-      }
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/unfocusedDescription",
-      "options": {
-        "showUnfocusedDescription": true
-      }
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/hideRequiredAsterisk",
-      "options": {
-        "hideRequiredAsterisk": true
-      }
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/toggle",
-      "label": "Boolean as Toggle",
-      "options": {
-        "toggle": true
-      }
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/birthDate"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/time"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/dateTime"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/enum"
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/personalData/properties/height"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/nationality"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/occupation",
+          "suggestion": [
+            "Accountant",
+            "Engineer",
+            "Freelancer",
+            "Journalism",
+            "Physician",
+            "Student",
+            "Teacher",
+            "Other"
+          ]
+        }
+      ]
     }
   ]
 }

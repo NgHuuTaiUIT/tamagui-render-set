@@ -22,7 +22,7 @@ const Content = styled(Paragraph, {
   justifyContent: 'center',
   // borderRadius: '0.25em',
   backgroundColor: '#cecece',
-  marginBottom: '1rem',
+  marginBottom: '$-1',
 })
 
 const ResetButton = styled(Button, {
@@ -32,7 +32,7 @@ const ResetButton = styled(Button, {
 
 const Demoform = styled(YStack, {
   margin: 'auto',
-  padding: '1rem',
+  padding: '$-1',
   width: '100%',
   display: 'flex',
   justifyContent: 'center',
@@ -64,19 +64,19 @@ const Test = ({ schema, uischema, initialData }) => {
     //   </header>
     // </div>
     <Fragment>
-      <Container justifyContent={'center'} space={1}>
+      <Container justifyContent={'center'} space={1} maw='80%' m='auto'>
         <YStack>
           <Title>
             <Text>Bound data</Text>
           </Title>
-          <Content>
+          <Content p={20}>
             <Text>{stringifiedData}</Text>
           </Content>
           <Button onPress={clearData} color="primary">
             <Text>Clear data</Text>
           </Button>
         </YStack>
-        <YStack>
+        <YStack pb={100}>
           <Title>
             <Text>Rendered form</Text>
           </Title>

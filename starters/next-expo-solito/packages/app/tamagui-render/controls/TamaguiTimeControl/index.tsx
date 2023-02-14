@@ -45,7 +45,7 @@ export const TamaguiTimeControl = (props: ControlProps) => {
   return (
     <YStack>
       <DateTimePicker
-        value={value?.toDate()!}
+        value={value?.toDate()! || new Date()}
         mode="time"
         onChange={(ev, date) => onChange(dayjs(date!), 'Invalid Date')}
         // display={Platform.OS === 'ios' ? 'spinner' : 'default'}

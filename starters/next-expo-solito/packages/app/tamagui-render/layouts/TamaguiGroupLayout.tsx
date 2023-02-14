@@ -43,8 +43,8 @@ const GroupComponent = React.memo(
   ({ visible, enabled, uischema, label, ...props }: TamaguiLabelableLayoutRendererProps) => {
     const groupLayout = uischema as GroupLayout
     return (
-      <YStack>
-        <Card theme="dark" elevate size="$4" bordered style={style}>
+      <YStack w='100%'>
+        <Card theme="dark" elevate size="$4" bordered style={style} p={20}>
           {!isEmpty(label) && (
             <Card.Header padded>
               <H2>{label}</H2>
