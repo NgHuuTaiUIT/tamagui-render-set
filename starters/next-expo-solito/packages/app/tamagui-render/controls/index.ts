@@ -72,20 +72,20 @@ import TamaguiBooleanSwitchControl, {
   tamaguiBooleanSwitchControlTester,
   TamaguiBooleanSwitchControl as TamaguiBooleanSwitchControlUnwrapped
 } from './TamaguiBooleanSwitchControl';
-// import TamaguiAnyOfStringOrEnumControl, {
-//   tamaguiAnyOfStringOrEnumControlTester,
-//   TamaguiAnyOfStringOrEnumControl as TamaguiAnyOfStringOrEnumControlUnwrapped
-// } from './TamaguiAnyOfStringOrEnumControl';
+import TamaguiAnyOfStringOrEnumControl, {
+  tamaguiAnyOfStringOrEnumControlTester,
+  TamaguiAnyOfStringOrEnumControl as TamaguiAnyOfStringOrEnumControlUnwrapped
+} from './TamaguiAnyOfStringOrEnumControl';
 
 import TamaguiOneOfEnumControl, {
   tamaguiOneOfEnumControlTester,
   TamaguiOneOfEnumControl as TamaguiOneOfEnumControlUnwrapped
 } from './TamaguiOneOfEnumControl';
 
-// import TamaguiOneOfRadioGroupControl, {
-//   tamaguiOneOfRadioGroupControlTester,
-//   TamaguiOneOfRadioGroupControl as TamaguiOneOfRadioGroupControlUnwrapped
-// } from './TamaguiOneOfRadioGroupControl';
+import TamaguiOneOfRadioGroupControl, {
+  tamaguiOneOfRadioGroupControlTester,
+  TamaguiOneOfRadioGroupControl as TamaguiOneOfRadioGroupControlUnwrapped
+} from './TamaguiOneOfRadioGroupControl';
 
 export const Unwrapped = {
   TamaguiBooleanControl: TamaguiBooleanControlUnwrapped,
@@ -100,9 +100,9 @@ export const Unwrapped = {
   TamaguiNumberControl: TamaguiNumberControlUnwrapped,
   TamaguiTextControl: TamaguiTextControlUnwrapped,
   TamaguiBooleanSwitchControl: TamaguiBooleanSwitchControlUnwrapped,
-  // TamaguiAnyOfStringOrEnumControl: TamaguiAnyOfStringOrEnumControlUnwrapped,
+  TamaguiAnyOfStringOrEnumControl: TamaguiAnyOfStringOrEnumControlUnwrapped,
   TamaguiOneOfEnumControl: TamaguiOneOfEnumControlUnwrapped,
-  // TamaguiOneOfRadioGroupControl: TamaguiOneOfRadioGroupControlUnwrapped
+  TamaguiOneOfRadioGroupControl: TamaguiOneOfRadioGroupControlUnwrapped
 };
 
 export {
@@ -130,12 +130,12 @@ export {
   tamaguiNumberControlTester,
   TamaguiTextControl,
   tamaguiTextControlTester,
-  // TamaguiAnyOfStringOrEnumControl,
-  // tamaguiAnyOfStringOrEnumControlTester,
+  TamaguiAnyOfStringOrEnumControl,
+  tamaguiAnyOfStringOrEnumControlTester,
   TamaguiOneOfEnumControl,
   tamaguiOneOfEnumControlTester,
-  // TamaguiOneOfRadioGroupControl,
-  // tamaguiOneOfRadioGroupControlTester
+  TamaguiOneOfRadioGroupControl,
+  tamaguiOneOfRadioGroupControlTester
 };
 
 export * from './TamaguiInputControl';

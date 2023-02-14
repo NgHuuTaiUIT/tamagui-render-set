@@ -54,7 +54,7 @@ export const InputInteger = React.memo(
       <Input
         keyboardType='numeric'
         value={inputValue}
-        onChange={onChange}
+        onChangeText={onChange}
         className={className}
         id={id}
         disabled={!enabled}
