@@ -27,8 +27,21 @@ const eventToValue = (text: any) => (text === '' ? undefined : text)
 
 export const InputText = React.memo((props: CellProps & WithClassname & InputProps) => {
   //   const [showAdornment, setShowAdornment] = useState(false)
-  const { data, config, className, id, enabled, uischema, isValid, path, handleChange, schema } =
-    props
+  const {
+    data,
+    config,
+    className,
+    id,
+    enabled,
+    uischema,
+    isValid,
+    path,
+    handleChange,
+    schema,
+    onFocus,
+    onBlur,
+  } = props
+  console.log(props)
   const maxLength = schema.maxLength
   const placeholder = (schema.options?.placeholder as string) || ''
 
@@ -66,7 +79,10 @@ export const InputText = React.memo((props: CellProps & WithClassname & InputPro
         onChangeText={onChange}
         className={className}
         id={id}
-        disabled={!enabled}
+        // disabled={!enabled}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        editable={!enabled}
         autoFocus={appliedUiSchemaOptions.focus}
         multiline={appliedUiSchemaOptions.multi}
         {...inputProps}

@@ -25,7 +25,7 @@
 import React from 'react'
 import { showAsRequired, ControlProps, isDescriptionHidden } from '@jsonforms/core'
 
-import { YStack, Label, Paragraph, VisuallyHidden } from 'tamagui'
+import { YStack, Label, Paragraph, VisuallyHidden, Text } from 'tamagui'
 // import { FormControl, FormHelperText } from '@mui/material';
 import merge from 'lodash/merge'
 import { useFocus } from '../util'
@@ -45,23 +45,21 @@ export const TamaguiInputControl = (props: ControlProps & WithInput) => {
     focused,
     appliedUiSchemaOptions.showUnfocusedDescription
   );
-
   const firstFormHelperText = showDescription
     ? description
     : !isValid
     ? errors
     : null;
-  const secondFormHelperText = showDescription && !isValid ? errors : null;
+  const secondFormHelperText = !isValid ? errors : null;
   const InnerComponent = input
-
   return (
     <YStack>
       <Label htmlFor={id + '-input'} color={!isValid ? '$red10Light' : ''}>
         {label} {required && '*'}
       </Label>
-      <InnerComponent {...props} id={id + '-input'} isValid={isValid} visible={visible} />
-      <VisuallyHidden visible={!isValid && !showDescription}>
-        <Paragraph size="$2" fow="500" color="$red10Light">
+      <InnerComponent {...props} id={id + '-input'} isValid={isValid} visible={visible} onFocus={onFocus} onBlur={onBlur}/>
+      <VisuallyHidden visible={isValid && showDescription}>
+        <Paragraph size="$2" fow="500" color="$gray10Light">
           {firstFormHelperText}
         </Paragraph>
       </VisuallyHidden>
